@@ -12,20 +12,22 @@ namespace PhongMachTu
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class Thuoc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Account()
+        public Thuoc()
         {
-            this.BacSis = new HashSet<BacSi>();
+            this.ChiTietTTs = new HashSet<ChiTietTT>();
         }
     
         public int id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public int Type { get; set; }
+        public string Ten { get; set; }
+        public string DonVi { get; set; }
+        public string CongDung { get; set; }
+        public int SoLuong { get; set; }
+        public string NhaSX { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BacSi> BacSis { get; set; }
+        public virtual ICollection<ChiTietTT> ChiTietTTs { get; set; }
     }
 }

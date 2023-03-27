@@ -12,20 +12,20 @@ namespace PhongMachTu
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class PhieuDV
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Account()
+        public PhieuDV()
         {
-            this.BacSis = new HashSet<BacSi>();
+            this.CTDVs = new HashSet<CTDV>();
         }
     
         public int id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public int Type { get; set; }
+        public System.DateTime NgayKhamDV { get; set; }
+        public int idHD { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BacSi> BacSis { get; set; }
+        public virtual ICollection<CTDV> CTDVs { get; set; }
+        public virtual HoaDon HoaDon { get; set; }
     }
 }

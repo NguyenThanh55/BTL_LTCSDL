@@ -9,19 +9,38 @@ namespace PhongMachTu.DAO
 {
     public class DAO_Account
     {
-        QuanLyPhongMachTuEntities db;
+        QLPMEntities1 db;
         public DAO_Account()
         {
-            db = new QuanLyPhongMachTuEntities();
+            db = new QLPMEntities1();
         }
 
         public bool DangNhap(String name, String pass)
         {
             int? acc;
-            acc = db.getAccount(name, pass).FirstOrDefault();
+            acc = db.SP_GetAccountByUsername(name, pass).FirstOrDefault();
             if (acc == 1)
                 return true;
             return false;
+        }
+
+        public dynamic LayDSThongTin()
+        {
+            var ds = db.Accounts.Select(s => new
+            {
+                s.id,
+                s.Username,
+                s.Password,
+                s.Type
+            }).ToList();
+            return ds;
+        }
+
+        public dynamic LayType()
+        {
+            var ds = db.Accounts.Select(s => new
+            { s.id, s.Type }).ToList();
+            return ds;
         }
     }
 }

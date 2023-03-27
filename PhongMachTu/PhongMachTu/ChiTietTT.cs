@@ -10,12 +10,17 @@
 namespace PhongMachTu
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class USP_GetAccountByUserName_Result
+    public partial class ChiTietTT
     {
         public int id { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public int Type { get; set; }
+        public int LieuLuong { get; set; }
+        public string CachDung { get; set; }
+        public int idTT { get; set; }
+        public int idThuoc { get; set; }
+    
+        public virtual Thuoc Thuoc { get; set; }
+        public virtual ToaThuoc ToaThuoc { get; set; }
     }
 }

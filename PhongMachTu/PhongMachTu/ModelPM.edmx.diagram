@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d6b7cfe206c247668f5667f2191aa343" Name="Diagram1">
+        <EntityTypeShape EntityType="QLPMModel.Account" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPMModel.BacSi" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPMModel.BenhNhan" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPMModel.ChiTietTT" Width="1.5" PointX="12" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPMModel.CTDV" Width="1.5" PointX="12" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPMModel.DichVu" Width="1.5" PointX="9.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPMModel.HoaDon" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPMModel.PhieuDV" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPMModel.PhieuKham" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPMModel.Thuoc" Width="1.5" PointX="9.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPMModel.ToaThuoc" Width="1.5" PointX="9.75" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="QLPMModel.FK__BacSi__idAccount__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPMModel.FK__PhieuKham__idBS__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPMModel.FK__HoaDon__idBN__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPMModel.FK__ChiTietTT__idThu__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPMModel.FK__ChiTietTT__idTT__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPMModel.FK__CTDV__idDV__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPMModel.FK__CTDV__idPDV__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPMModel.FK__HoaDon__idPK__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPMModel.FK__PhieuDV__idHD__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPMModel.FK__ToaThuoc__idHD__31EC6D26" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

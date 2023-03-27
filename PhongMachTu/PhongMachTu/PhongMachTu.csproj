@@ -59,12 +59,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>ModelPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BacSi.cs">
+      <DependentUpon>ModelPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BenhNhan.cs">
+      <DependentUpon>ModelPM.tt</DependentUpon>
     </Compile>
     <Compile Include="BUS\BUS_Account.cs" />
+    <Compile Include="BUS\BUS_BenhNhan.cs" />
+    <Compile Include="BUS\BUS_Thuoc.cs" />
+    <Compile Include="ChiTietTT.cs">
+      <DependentUpon>ModelPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CTDV.cs">
+      <DependentUpon>ModelPM.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAO\DAO_Account.cs" />
-    <Compile Include="Doctor.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="DAO\DAO_BenhNhan.cs" />
+    <Compile Include="DAO\DAO_Thuoc.cs" />
+    <Compile Include="DichVu.cs">
+      <DependentUpon>ModelPM.tt</DependentUpon>
     </Compile>
     <Compile Include="fAdmin.cs">
       <SubType>Form</SubType>
@@ -90,31 +106,37 @@
     <Compile Include="fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
+    <Compile Include="HoaDon.cs">
+      <DependentUpon>ModelPM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model.cs">
+    <Compile Include="ModelPM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>ModelPM.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model.Designer.cs">
+    <Compile Include="ModelPM.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
+      <DependentUpon>ModelPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPM.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuDV.cs">
+      <DependentUpon>ModelPM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuKham.cs">
+      <DependentUpon>ModelPM.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="USP_GetAccountByUserNameandId_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Thuoc.cs">
+      <DependentUpon>ModelPM.tt</DependentUpon>
     </Compile>
-    <Compile Include="USP_GetAccountByUserName_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="USP_GetAccount_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="ToaThuoc.cs">
+      <DependentUpon>ModelPM.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
@@ -137,12 +159,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Model.edmx">
+    <EntityDeploy Include="ModelPM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelPM.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
+    <None Include="ModelPM.edmx.diagram">
+      <DependentUpon>ModelPM.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -159,19 +181,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="ModelPM.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPM.edmx</DependentUpon>
+      <LastGenOutput>ModelPM.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelPM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPM.edmx</DependentUpon>
+      <LastGenOutput>ModelPM.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

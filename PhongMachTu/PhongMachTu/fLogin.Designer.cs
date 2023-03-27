@@ -71,7 +71,7 @@
             this.txtMatKhau.Location = new System.Drawing.Point(224, 3);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(372, 30);
-            this.txtMatKhau.TabIndex = 2;
+            this.txtMatKhau.TabIndex = 0;
             this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // label6
@@ -109,7 +109,7 @@
             this.txtDangNhap.Location = new System.Drawing.Point(224, 3);
             this.txtDangNhap.Name = "txtDangNhap";
             this.txtDangNhap.Size = new System.Drawing.Size(372, 30);
-            this.txtDangNhap.TabIndex = 2;
+            this.txtDangNhap.TabIndex = 0;
             // 
             // label3
             // 
@@ -138,7 +138,7 @@
             this.btThoat.Location = new System.Drawing.Point(578, 231);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(194, 71);
-            this.btThoat.TabIndex = 0;
+            this.btThoat.TabIndex = 1;
             this.btThoat.Text = "Thoát";
             this.btThoat.UseVisualStyleBackColor = true;
             this.btThoat.Click += new System.EventHandler(this.btThoat_Click);

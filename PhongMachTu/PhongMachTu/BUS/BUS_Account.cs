@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using PhongMachTu.DAO;
 
 namespace PhongMachTu.BUS
@@ -20,6 +21,18 @@ namespace PhongMachTu.BUS
             if (dAccount.DangNhap(name, pass))
                 return true;
             return false;
+        }
+
+        public void HienThi(DataGridView dg)
+        {
+            dg.DataSource = dAccount.LayDSThongTin();
+        }
+
+        public void HienThiType(ComboBox cb)
+        {
+            cb.DataSource = dAccount.LayType();
+            cb.DisplayMember = "Type";
+            cb.ValueMember = "id";
         }
     }
 }

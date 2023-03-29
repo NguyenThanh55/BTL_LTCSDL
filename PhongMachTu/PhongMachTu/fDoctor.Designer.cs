@@ -35,7 +35,7 @@
             this.btDangKy = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbThuoc = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbbTenBN = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -106,6 +106,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.PeachPuff;
             this.tabPage1.Controls.Add(this.listView1);
             this.tabPage1.Controls.Add(this.button1);
@@ -155,7 +156,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.numericUpDown1);
-            this.panel5.Controls.Add(this.comboBox1);
+            this.panel5.Controls.Add(this.cbbThuoc);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Location = new System.Drawing.Point(19, 234);
@@ -171,13 +172,13 @@
             this.numericUpDown1.TabIndex = 3;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // comboBox1
+            // cbbThuoc
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(95, 13);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(265, 27);
-            this.comboBox1.TabIndex = 2;
+            this.cbbThuoc.FormattingEnabled = true;
+            this.cbbThuoc.Location = new System.Drawing.Point(95, 13);
+            this.cbbThuoc.Name = "cbbThuoc";
+            this.cbbThuoc.Size = new System.Drawing.Size(265, 27);
+            this.cbbThuoc.TabIndex = 2;
             // 
             // label7
             // 
@@ -292,20 +293,20 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.cbbTenBN);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(19, 70);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(344, 38);
             this.panel3.TabIndex = 3;
             // 
-            // textBox1
+            // cbbTenBN
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(95, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(232, 30);
-            this.textBox1.TabIndex = 2;
+            this.cbbTenBN.FormattingEnabled = true;
+            this.cbbTenBN.Location = new System.Drawing.Point(96, 5);
+            this.cbbTenBN.Name = "cbbTenBN";
+            this.cbbTenBN.Size = new System.Drawing.Size(245, 27);
+            this.cbbTenBN.TabIndex = 2;
             // 
             // label3
             // 
@@ -540,7 +541,7 @@
             this.tabPage3.Text = "Đăng xuất";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // Bác_Sĩ
+            // fDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -548,9 +549,10 @@
             this.ClientSize = new System.Drawing.Size(844, 477);
             this.Controls.Add(this.tpLPK);
             this.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "Bác_Sĩ";
+            this.Name = "fDoctor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bác_Sĩ";
+            this.Load += new System.EventHandler(this.fDoctor_Load);
             this.tpLPK.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -592,7 +594,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label4;
@@ -604,7 +605,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbThuoc;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
@@ -633,5 +634,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbbTenBN;
     }
 }

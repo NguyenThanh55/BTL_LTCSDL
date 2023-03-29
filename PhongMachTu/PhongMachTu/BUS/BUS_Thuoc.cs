@@ -22,6 +22,13 @@ namespace PhongMachTu.BUS
             dg.DataSource = dThuoc.LayDSThongTin();
         }
 
+        public void LayDSThuoc(ComboBox cb)
+        {
+            cb.DataSource = dThuoc.LayDSTen();
+            cb.DisplayMember = "Ten";
+            cb.ValueMember = "id";
+        }
+
         public bool themThuoc(Thuoc thuoc)
         {
             try

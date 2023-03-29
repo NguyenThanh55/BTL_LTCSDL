@@ -29,9 +29,15 @@ namespace PhongMachTu.DAO
 
         public dynamic LayDSTen() 
         {
-            var ds = db.Accounts.Select(s => new
-            { s.id, s.Username }).ToList();
+            var ds = db.BenhNhans.Select(s => new
+            { s.id, s.Ten }).ToList();
             return ds;
+        }
+
+        public void ThemBN(BenhNhan benhNhan)
+        {
+            db.BenhNhans.Add(benhNhan);
+            db.SaveChanges();
         }
     }
 }

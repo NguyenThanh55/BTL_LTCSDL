@@ -21,12 +21,25 @@ namespace PhongMachTu.BUS
             dg.DataSource = dBenhNhan.LayDSThongTin();
         }
 
-
         public void LayDSBN(ComboBox cb)
         {
             cb.DataSource = dBenhNhan.LayDSTen();
-            cb.DisplayMember = "UserName";
+            cb.DisplayMember = "Ten";
             cb.ValueMember = "id";
+        }
+
+        public bool themBN(BenhNhan benhNhan)
+        {
+            try
+            {
+                dBenhNhan.ThemBN(benhNhan);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+
+            }
         }
     }
 }

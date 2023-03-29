@@ -28,6 +28,13 @@ namespace PhongMachTu.DAO
             return ds;
         }
 
+        public dynamic LayDSTen()
+        {
+            var ds = db.Thuocs.Select(s => new
+            { s.id, s.Ten }).ToList();
+            return ds;
+        }
+
         public void ThemThuoc(Thuoc thuoc)
         {
             db.Thuocs.Add(thuoc);

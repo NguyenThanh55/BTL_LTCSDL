@@ -22,6 +22,11 @@ namespace PhongMachTu.BUS
             dg.DataSource = dThuoc.LayDSThongTin();
         }
 
+        public Thuoc LayThongTinThuoc(int ma)
+        {
+            return dThuoc.LayThongTinThuoc(ma);
+        }
+
         public void LayDSThuoc(ComboBox cb)
         {
             cb.DataSource = dThuoc.LayDSTen();
@@ -72,6 +77,47 @@ namespace PhongMachTu.BUS
                 try
                 {
                     dThuoc.XoaThuoc(thuoc);
+                    return true;
+                }
+                catch (DbUpdateException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public ChiTietTT LayThongTinCTTT(int ma)
+        {
+            return dThuoc.LayGiaCTTT(ma);
+        }
+
+        public bool ThemCTTT(ChiTietTT toa)
+        {
+            try
+            {
+                dThuoc.ThemCTTT(toa);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+
+            }
+        }
+
+        public bool xoaCTTT(int ma)
+        {
+            if (dThuoc.KiemTraThuoc(ma))
+            {
+                try
+                {
+                    dThuoc.XoaCTTT(ma);
                     return true;
                 }
                 catch (DbUpdateException ex)

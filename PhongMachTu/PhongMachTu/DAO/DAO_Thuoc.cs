@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PhongMachTu.DAO
 {
     public class DAO_Thuoc
     {
-        QLPMEntities1 db;
+        QLPMEntities db;
         public DAO_Thuoc()
         {
-            db = new QLPMEntities1();
+            db = new QLPMEntities();
         }
 
         public dynamic LayDSThongTin()
@@ -23,9 +24,16 @@ namespace PhongMachTu.DAO
                 s.DonVi,
                 s.CongDung,
                 s.SoLuong,
-                s.NhaSX
+                s.NhaSX,
+                s.TienThuoc
             }).ToList();
             return ds;
+        }
+
+        public Thuoc LayThongTinThuoc(int ma)
+        {
+            Thuoc t = db.Thuocs.Where(s => s.id == ma).FirstOrDefault();
+            return t;
         }
 
         public dynamic LayDSTen()
@@ -44,7 +52,7 @@ namespace PhongMachTu.DAO
         public bool KiemTraThuoc(Thuoc thuoc)
         {
             Thuoc t = db.Thuocs.Find(thuoc.id);
-            if (thuoc != null)
+            if (t != null)
             {
                 return true;
             }
@@ -62,6 +70,7 @@ namespace PhongMachTu.DAO
             t.CongDung = thuoc.CongDung;
             t.SoLuong = thuoc.SoLuong;
             t.NhaSX = thuoc.NhaSX;
+            t.TienThuoc = thuoc.TienThuoc;
             db.SaveChanges();
         }
 
@@ -70,6 +79,56 @@ namespace PhongMachTu.DAO
             Thuoc t = db.Thuocs.Find(thuoc.id);
             db.Thuocs.Remove(t);
             db.SaveChanges();
+        }
+
+        public ChiTietTT LayGiaCTTT(int id)
+        {
+            ChiTietTT dv = db.ChiTietTTs.Where(s => s.id == id).FirstOrDefault();
+            return dv;
+        }
+
+        public void ThemCTTT(ChiTietTT toa)
+        {
+            db.ChiTietTTs.Add(toa);
+            db.SaveChanges();
+        }
+
+        public bool KiemTraThuoc(int ma)
+        {
+            ChiTietTT thuoc = db.ChiTietTTs.Find(ma);
+            //CTDV d = db.CTDVs.Find(dv.idDV);
+            if (thuoc != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //public void CapNhatDV(CTDV dichvu)
+        //{
+        //    CTDV dv = db.CTDVs.Find(dichvu.id);
+        //    dv.idHD = dichvu.idHD;
+        //    dv.idDV = dichvu.idDV;
+        //    dv.Gia = dichvu.Gia;
+        //    db.SaveChanges();
+        //}
+
+        public void XoaCTTT(int ma)
+        {
+            try
+            {
+                ChiTietTT thuoc = db.ChiTietTTs.Find(ma);
+                //CTDV d = db.CTDVs.Find(dv.idDV);
+                db.ChiTietTTs.Remove(thuoc);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

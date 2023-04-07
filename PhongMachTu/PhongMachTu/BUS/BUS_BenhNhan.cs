@@ -21,6 +21,11 @@ namespace PhongMachTu.BUS
             dg.DataSource = dBenhNhan.LayDSThongTin();
         }
 
+        public BenhNhan LayThongTinBenhNhan(int ma)
+        {
+            return dBenhNhan.LayThongTinBenhNhan(ma);
+        }
+
         public void LayDSBN(ComboBox cb)
         {
             cb.DataSource = dBenhNhan.LayDSTen();

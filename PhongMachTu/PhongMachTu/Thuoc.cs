@@ -26,6 +26,7 @@ namespace PhongMachTu
         public string CongDung { get; set; }
         public int SoLuong { get; set; }
         public string NhaSX { get; set; }
+        public int TienThuoc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietTT> ChiTietTTs { get; set; }

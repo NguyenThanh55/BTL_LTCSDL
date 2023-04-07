@@ -2,7 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\PhongMachTu",
-    "\\PhongMachTu\\BUS"
+    "\\PhongMachTu\\BUS",
+    "\\PhongMachTu\\DAO"
   ],
   "SelectedNode": "\\PhongMachTu.sln",
   "PreviewInSolutionExplorer": false

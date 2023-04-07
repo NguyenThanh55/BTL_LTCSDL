@@ -17,8 +17,8 @@ namespace PhongMachTu
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HoaDon()
         {
-            this.PhieuDVs = new HashSet<PhieuDV>();
-            this.ToaThuocs = new HashSet<ToaThuoc>();
+            this.ChiTietTTs = new HashSet<ChiTietTT>();
+            this.CTDVs = new HashSet<CTDV>();
         }
     
         public int id { get; set; }
@@ -27,14 +27,13 @@ namespace PhongMachTu
         public int TienDV { get; set; }
         public Nullable<int> TienThuoc { get; set; }
         public Nullable<int> TongTien { get; set; }
-        public int idBN { get; set; }
         public int idPK { get; set; }
+        public bool TrangThai { get; set; }
     
-        public virtual BenhNhan BenhNhan { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChiTietTT> ChiTietTTs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTDV> CTDVs { get; set; }
         public virtual PhieuKham PhieuKham { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhieuDV> PhieuDVs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ToaThuoc> ToaThuocs { get; set; }
     }
 }

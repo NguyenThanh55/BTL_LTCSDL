@@ -59,28 +59,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs">
-      <DependentUpon>ModelPM.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.tt</DependentUpon>
     </Compile>
     <Compile Include="BacSi.cs">
-      <DependentUpon>ModelPM.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.tt</DependentUpon>
     </Compile>
     <Compile Include="BenhNhan.cs">
-      <DependentUpon>ModelPM.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.tt</DependentUpon>
     </Compile>
     <Compile Include="BUS\BUS_Account.cs" />
+    <Compile Include="BUS\BUS_BacSi.cs" />
     <Compile Include="BUS\BUS_BenhNhan.cs" />
+    <Compile Include="BUS\BUS_DichVu.cs" />
+    <Compile Include="BUS\BUS_HoaDon.cs" />
+    <Compile Include="BUS\BUS_PhieuKham.cs" />
     <Compile Include="BUS\BUS_Thuoc.cs" />
     <Compile Include="ChiTietTT.cs">
-      <DependentUpon>ModelPM.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.tt</DependentUpon>
     </Compile>
     <Compile Include="CTDV.cs">
-      <DependentUpon>ModelPM.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\DAO_Account.cs" />
+    <Compile Include="DAO\DAO_BacSi.cs" />
     <Compile Include="DAO\DAO_BenhNhan.cs" />
+    <Compile Include="DAO\DAO_DichVu.cs" />
+    <Compile Include="DAO\DAO_HoaDon.cs" />
+    <Compile Include="DAO\DAO_PhieuKham.cs" />
     <Compile Include="DAO\DAO_Thuoc.cs" />
     <Compile Include="DichVu.cs">
-      <DependentUpon>ModelPM.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.tt</DependentUpon>
     </Compile>
     <Compile Include="fAdmin.cs">
       <SubType>Form</SubType>
@@ -100,6 +108,12 @@
     <Compile Include="fDoctor.Designer.cs">
       <DependentUpon>fDoctor.cs</DependentUpon>
     </Compile>
+    <Compile Include="fHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fHoaDon.Designer.cs">
+      <DependentUpon>fHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,36 +121,36 @@
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="HoaDon.cs">
-      <DependentUpon>ModelPM.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelPM.Context.cs">
+    <Compile Include="ModelQLPM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelPM.Context.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelPM.cs">
+    <Compile Include="ModelQLPM.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelPM.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelPM.Designer.cs">
+    <Compile Include="ModelQLPM.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelPM.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="PhieuDV.cs">
-      <DependentUpon>ModelPM.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.edmx</DependentUpon>
     </Compile>
     <Compile Include="PhieuKham.cs">
-      <DependentUpon>ModelPM.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Thuoc.cs">
-      <DependentUpon>ModelPM.tt</DependentUpon>
+      <DependentUpon>ModelQLPM.tt</DependentUpon>
     </Compile>
-    <Compile Include="ToaThuoc.cs">
-      <DependentUpon>ModelPM.tt</DependentUpon>
+    <Compile Include="ucThanhToan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucThanhToan.Designer.cs">
+      <DependentUpon>ucThanhToan.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
@@ -146,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fDoctor.resx">
       <DependentUpon>fDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fHoaDon.resx">
+      <DependentUpon>fHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
@@ -159,14 +176,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="ModelPM.edmx">
+    <EmbeddedResource Include="ucThanhToan.resx">
+      <DependentUpon>ucThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="ModelQLPM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelPM.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelQLPM.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ModelPM.edmx.diagram">
-      <DependentUpon>ModelPM.edmx</DependentUpon>
+    <None Include="ModelQLPM.edmx.diagram">
+      <DependentUpon>ModelQLPM.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Account.datasource" />
+    <None Include="Properties\DataSources\HoaDon.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -184,15 +206,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ModelPM.Context.tt">
+    <Content Include="ModelQLPM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelPM.edmx</DependentUpon>
-      <LastGenOutput>ModelPM.Context.cs</LastGenOutput>
+      <DependentUpon>ModelQLPM.edmx</DependentUpon>
+      <LastGenOutput>ModelQLPM.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ModelPM.tt">
+    <Content Include="ModelQLPM.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelPM.edmx</DependentUpon>
-      <LastGenOutput>ModelPM.cs</LastGenOutput>
+      <DependentUpon>ModelQLPM.edmx</DependentUpon>
+      <LastGenOutput>ModelQLPM.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

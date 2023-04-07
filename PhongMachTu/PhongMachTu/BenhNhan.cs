@@ -17,7 +17,7 @@ namespace PhongMachTu
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BenhNhan()
         {
-            this.HoaDons = new HashSet<HoaDon>();
+            this.PhieuKhams = new HashSet<PhieuKham>();
         }
     
         public int id { get; set; }
@@ -27,6 +27,6 @@ namespace PhongMachTu
         public string DiaChi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual ICollection<PhieuKham> PhieuKhams { get; set; }
     }
 }

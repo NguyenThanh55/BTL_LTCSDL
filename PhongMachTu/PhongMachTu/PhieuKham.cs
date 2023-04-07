@@ -24,9 +24,11 @@ namespace PhongMachTu
         public System.DateTime NgayKham { get; set; }
         public string TrieuChung { get; set; }
         public string ChuanDoanBenh { get; set; }
+        public int idBN { get; set; }
         public int idBS { get; set; }
     
         public virtual BacSi BacSi { get; set; }
+        public virtual BenhNhan BenhNhan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
     }

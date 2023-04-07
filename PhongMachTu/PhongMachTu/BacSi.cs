@@ -24,7 +24,6 @@ namespace PhongMachTu
         public string Ten { get; set; }
         public System.DateTime NgaySinh { get; set; }
         public string QueQuan { get; set; }
-        public int idAccount { get; set; }
     
         public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

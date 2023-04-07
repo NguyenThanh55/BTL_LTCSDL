@@ -16,7 +16,7 @@ namespace PhongMachTu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fDoctor());
+            Application.Run(new fLogin());
         }
     }
 }

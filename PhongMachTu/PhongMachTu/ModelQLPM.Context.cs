@@ -15,10 +15,10 @@ namespace PhongMachTu
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class QLPMEntities1 : DbContext
+    public partial class QLPMEntities : DbContext
     {
-        public QLPMEntities1()
-            : base("name=QLPMEntities1")
+        public QLPMEntities()
+            : base("name=QLPMEntities")
         {
         }
     
@@ -34,10 +34,8 @@ namespace PhongMachTu
         public virtual DbSet<CTDV> CTDVs { get; set; }
         public virtual DbSet<DichVu> DichVus { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
-        public virtual DbSet<PhieuDV> PhieuDVs { get; set; }
         public virtual DbSet<PhieuKham> PhieuKhams { get; set; }
         public virtual DbSet<Thuoc> Thuocs { get; set; }
-        public virtual DbSet<ToaThuoc> ToaThuocs { get; set; }
     
         public virtual ObjectResult<Nullable<int>> SP_GetAccountByUsername(string userName, string password)
         {
@@ -50,6 +48,15 @@ namespace PhongMachTu
                 new ObjectParameter("password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_GetAccountByUsername", userNameParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_GetID(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_GetID", nameParameter);
         }
     }
 }

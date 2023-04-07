@@ -47,17 +47,26 @@ namespace PhongMachTu
             dgBenhNhan.Columns[3].Width = (int)(dgBenhNhan.Width * 0.2);
             dgBenhNhan.Columns[4].Width = (int)(dgBenhNhan.Width * 0.2);
         }
-
+  
         private void HienThiDSThuoc()
         {
             dgThuoc.DataSource = null;
             bThuoc.HienThi(dgThuoc);
-            dgThuoc.Columns[0].Width = (int)(dgThuoc.Width * 0.1);
-            dgThuoc.Columns[1].Width = (int)(dgThuoc.Width * 0.2);
-            dgThuoc.Columns[2].Width = (int)(dgThuoc.Width * 0.15);
+            dgThuoc.Columns[0].Width = (int)(dgThuoc.Width * 0.05);
+            dgThuoc.Columns[1].Width = (int)(dgThuoc.Width * 0.15);
+            dgThuoc.Columns[2].Width = (int)(dgThuoc.Width * 0.1);
             dgThuoc.Columns[3].Width = (int)(dgThuoc.Width * 0.2);
-            dgThuoc.Columns[4].Width = (int)(dgThuoc.Width * 0.15);
+            dgThuoc.Columns[4].Width = (int)(dgThuoc.Width * 0.1);
             dgThuoc.Columns[5].Width = (int)(dgThuoc.Width * 0.2);
+            dgThuoc.Columns[6].Width = (int)(dgThuoc.Width * 0.2);
+            //DataGridViewButtonColumn buttonColumn =
+            //new DataGridViewButtonColumn();
+            //buttonColumn.HeaderText = "";
+            //buttonColumn.Name = "Status Request";
+            //buttonColumn.Text = "Request Status";
+            //buttonColumn.UseColumnTextForButtonValue = true;
+            //dgThuoc.Columns.Add(buttonColumn);
+            //dgThuoc.Columns[6].Width = (int)(dgThuoc.Width * 0.2);
         }
 
         private void fAdmin_Load(object sender, EventArgs e)

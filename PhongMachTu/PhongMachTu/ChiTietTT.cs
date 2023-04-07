@@ -16,11 +16,12 @@ namespace PhongMachTu
     {
         public int id { get; set; }
         public int LieuLuong { get; set; }
+        public int Gia { get; set; }
         public string CachDung { get; set; }
-        public int idTT { get; set; }
         public int idThuoc { get; set; }
+        public int idHD { get; set; }
     
+        public virtual HoaDon HoaDon { get; set; }
         public virtual Thuoc Thuoc { get; set; }
-        public virtual ToaThuoc ToaThuoc { get; set; }
     }
 }

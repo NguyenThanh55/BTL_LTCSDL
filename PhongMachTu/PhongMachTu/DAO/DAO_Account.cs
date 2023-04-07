@@ -9,10 +9,10 @@ namespace PhongMachTu.DAO
 {
     public class DAO_Account
     {
-        QLPMEntities1 db;
+        QLPMEntities db;
         public DAO_Account()
         {
-            db = new QLPMEntities1();
+            db = new QLPMEntities();
         }
 
         public bool DangNhap(String name, String pass)
@@ -22,6 +22,12 @@ namespace PhongMachTu.DAO
             if (acc == 1)
                 return true;
             return false;
+        }
+
+        public int LayId(String user)
+        {
+            var ds = db.SP_GetID(user).Select(s => new { s.Value }).ToList();
+            return  ds[0].Value;
         }
 
         public dynamic LayDSThongTin()

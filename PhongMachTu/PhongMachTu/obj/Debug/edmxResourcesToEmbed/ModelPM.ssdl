@@ -37,14 +37,14 @@
     <Property Name="LieuLuong" Type="int" Nullable="false" />
     <Property Name="CachDung" Type="nvarchar(max)" Nullable="false" />
     <Property Name="idTT" Type="int" Nullable="false" />
-    <Property Name="idThuoc" Type="int" Nullable="false" />
+    <Property Name="idHD" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CTDV">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idPDV" Type="int" Nullable="false" />
+    <Property Name="idHD" Type="int" Nullable="false" />
     <Property Name="idDV" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="DichVu">
@@ -65,7 +65,6 @@
     <Property Name="TienDV" Type="int" Nullable="false" />
     <Property Name="TienThuoc" Type="int" />
     <Property Name="TongTien" Type="int" />
-    <Property Name="idBN" Type="int" Nullable="false" />
     <Property Name="idPK" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PhieuDV">
@@ -84,6 +83,7 @@
     <Property Name="NgayKham" Type="date" Nullable="false" />
     <Property Name="TrieuChung" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="ChuanDoanBenh" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="idBN" Type="int" Nullable="false" />
     <Property Name="idBS" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Thuoc">
@@ -96,6 +96,7 @@
     <Property Name="CongDung" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SoLuong" Type="int" Nullable="false" />
     <Property Name="NhaSX" Type="nvarchar" MaxLength="50" />
+    <Property Name="TienThuoc" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ToaThuoc">
     <Key>
@@ -125,19 +126,7 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="ChiTietTT">
-        <PropertyRef Name="idThuoc" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__ChiTietTT__idTT__36B12243">
-    <End Role="ToaThuoc" Type="Self.ToaThuoc" Multiplicity="1" />
-    <End Role="ChiTietTT" Type="Self.ChiTietTT" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ToaThuoc">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="ChiTietTT">
-        <PropertyRef Name="idTT" />
+        <PropertyRef Name="idHD" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -153,30 +142,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CTDV__idPDV__3F466844">
-    <End Role="PhieuDV" Type="Self.PhieuDV" Multiplicity="1" />
-    <End Role="CTDV" Type="Self.CTDV" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PhieuDV">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="CTDV">
-        <PropertyRef Name="idPDV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__HoaDon__idBN__2E1BDC42">
-    <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
-    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BenhNhan">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="HoaDon">
-        <PropertyRef Name="idBN" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__HoaDon__idPK__2F10007B">
     <End Role="PhieuKham" Type="Self.PhieuKham" Multiplicity="1" />
     <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
@@ -189,19 +154,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PhieuDV__idHD__3A81B327">
+  <Association Name="FK_ChiTietTT_HoaDon">
     <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
-    <End Role="PhieuDV" Type="Self.PhieuDV" Multiplicity="*" />
+    <End Role="ChiTietTT" Type="Self.ChiTietTT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="HoaDon">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="PhieuDV">
+      <Dependent Role="ChiTietTT">
         <PropertyRef Name="idHD" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PhieuKham__idBS__29572725">
+  <Association Name="FK_CTDV_HoaDon">
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
+    <End Role="CTDV" Type="Self.CTDV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CTDV">
+        <PropertyRef Name="idHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuKham_BacSi">
     <End Role="BacSi" Type="Self.BacSi" Multiplicity="1" />
     <End Role="PhieuKham" Type="Self.PhieuKham" Multiplicity="*" />
     <ReferentialConstraint>
@@ -213,15 +190,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ToaThuoc__idHD__31EC6D26">
-    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
-    <End Role="ToaThuoc" Type="Self.ToaThuoc" Multiplicity="*" />
+  <Association Name="FK_PhieuKham_BenhNhan">
+    <End Role="BenhNhan" Type="Self.BenhNhan" Multiplicity="1" />
+    <End Role="PhieuKham" Type="Self.PhieuKham" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HoaDon">
+      <Principal Role="BenhNhan">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="ToaThuoc">
-        <PropertyRef Name="idHD" />
+      <Dependent Role="PhieuKham">
+        <PropertyRef Name="idBN" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -249,37 +226,29 @@
       <End Role="Thuoc" EntitySet="Thuoc" />
       <End Role="ChiTietTT" EntitySet="ChiTietTT" />
     </AssociationSet>
-    <AssociationSet Name="FK__ChiTietTT__idTT__36B12243" Association="Self.FK__ChiTietTT__idTT__36B12243">
-      <End Role="ToaThuoc" EntitySet="ToaThuoc" />
-      <End Role="ChiTietTT" EntitySet="ChiTietTT" />
-    </AssociationSet>
     <AssociationSet Name="FK__CTDV__idDV__403A8C7D" Association="Self.FK__CTDV__idDV__403A8C7D">
       <End Role="DichVu" EntitySet="DichVu" />
       <End Role="CTDV" EntitySet="CTDV" />
-    </AssociationSet>
-    <AssociationSet Name="FK__CTDV__idPDV__3F466844" Association="Self.FK__CTDV__idPDV__3F466844">
-      <End Role="PhieuDV" EntitySet="PhieuDV" />
-      <End Role="CTDV" EntitySet="CTDV" />
-    </AssociationSet>
-    <AssociationSet Name="FK__HoaDon__idBN__2E1BDC42" Association="Self.FK__HoaDon__idBN__2E1BDC42">
-      <End Role="BenhNhan" EntitySet="BenhNhan" />
-      <End Role="HoaDon" EntitySet="HoaDon" />
     </AssociationSet>
     <AssociationSet Name="FK__HoaDon__idPK__2F10007B" Association="Self.FK__HoaDon__idPK__2F10007B">
       <End Role="PhieuKham" EntitySet="PhieuKham" />
       <End Role="HoaDon" EntitySet="HoaDon" />
     </AssociationSet>
-    <AssociationSet Name="FK__PhieuDV__idHD__3A81B327" Association="Self.FK__PhieuDV__idHD__3A81B327">
+    <AssociationSet Name="FK_ChiTietTT_HoaDon" Association="Self.FK_ChiTietTT_HoaDon">
       <End Role="HoaDon" EntitySet="HoaDon" />
-      <End Role="PhieuDV" EntitySet="PhieuDV" />
+      <End Role="ChiTietTT" EntitySet="ChiTietTT" />
     </AssociationSet>
-    <AssociationSet Name="FK__PhieuKham__idBS__29572725" Association="Self.FK__PhieuKham__idBS__29572725">
+    <AssociationSet Name="FK_CTDV_HoaDon" Association="Self.FK_CTDV_HoaDon">
+      <End Role="HoaDon" EntitySet="HoaDon" />
+      <End Role="CTDV" EntitySet="CTDV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuKham_BacSi" Association="Self.FK_PhieuKham_BacSi">
       <End Role="BacSi" EntitySet="BacSi" />
       <End Role="PhieuKham" EntitySet="PhieuKham" />
     </AssociationSet>
-    <AssociationSet Name="FK__ToaThuoc__idHD__31EC6D26" Association="Self.FK__ToaThuoc__idHD__31EC6D26">
-      <End Role="HoaDon" EntitySet="HoaDon" />
-      <End Role="ToaThuoc" EntitySet="ToaThuoc" />
+    <AssociationSet Name="FK_PhieuKham_BenhNhan" Association="Self.FK_PhieuKham_BenhNhan">
+      <End Role="BenhNhan" EntitySet="BenhNhan" />
+      <End Role="PhieuKham" EntitySet="PhieuKham" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

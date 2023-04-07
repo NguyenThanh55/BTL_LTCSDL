@@ -8,10 +8,10 @@ namespace PhongMachTu.DAO
 {
     public class DAO_BenhNhan
     {
-        QLPMEntities1 db;
+        QLPMEntities db;
         public DAO_BenhNhan()
         {
-            db = new QLPMEntities1();
+            db = new QLPMEntities();
         }
 
         public dynamic LayDSThongTin()
@@ -25,6 +25,12 @@ namespace PhongMachTu.DAO
                 s.DiaChi
             }).ToList();
             return ds;
+        }
+
+        public BenhNhan LayThongTinBenhNhan(int ma)
+        {
+            BenhNhan bn = db.BenhNhans.Where(s => s.id == ma).FirstOrDefault();
+            return bn;
         }
 
         public dynamic LayDSTen() 

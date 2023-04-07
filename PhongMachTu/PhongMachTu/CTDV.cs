@@ -15,10 +15,11 @@ namespace PhongMachTu
     public partial class CTDV
     {
         public int id { get; set; }
-        public int idPDV { get; set; }
+        public int idHD { get; set; }
         public int idDV { get; set; }
+        public Nullable<int> Gia { get; set; }
     
         public virtual DichVu DichVu { get; set; }
-        public virtual PhieuDV PhieuDV { get; set; }
+        public virtual HoaDon HoaDon { get; set; }
     }
 }

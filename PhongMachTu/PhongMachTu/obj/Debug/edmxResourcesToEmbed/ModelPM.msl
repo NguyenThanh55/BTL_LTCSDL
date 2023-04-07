@@ -36,19 +36,19 @@
     <EntitySetMapping Name="ChiTietTTs">
       <EntityTypeMapping TypeName="QLPMModel.ChiTietTT">
         <MappingFragment StoreEntitySet="ChiTietTT">
+          <ScalarProperty Name="idHD" ColumnName="idHD" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="LieuLuong" ColumnName="LieuLuong" />
           <ScalarProperty Name="CachDung" ColumnName="CachDung" />
           <ScalarProperty Name="idTT" ColumnName="idTT" />
-          <ScalarProperty Name="idThuoc" ColumnName="idThuoc" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CTDVs">
       <EntityTypeMapping TypeName="QLPMModel.CTDV">
         <MappingFragment StoreEntitySet="CTDV">
+          <ScalarProperty Name="idHD" ColumnName="idHD" />
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="idPDV" ColumnName="idPDV" />
           <ScalarProperty Name="idDV" ColumnName="idDV" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -71,7 +71,6 @@
           <ScalarProperty Name="TienDV" ColumnName="TienDV" />
           <ScalarProperty Name="TienThuoc" ColumnName="TienThuoc" />
           <ScalarProperty Name="TongTien" ColumnName="TongTien" />
-          <ScalarProperty Name="idBN" ColumnName="idBN" />
           <ScalarProperty Name="idPK" ColumnName="idPK" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -88,6 +87,7 @@
     <EntitySetMapping Name="PhieuKhams">
       <EntityTypeMapping TypeName="QLPMModel.PhieuKham">
         <MappingFragment StoreEntitySet="PhieuKham">
+          <ScalarProperty Name="idBN" ColumnName="idBN" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="NgayKham" ColumnName="NgayKham" />
           <ScalarProperty Name="TrieuChung" ColumnName="TrieuChung" />
@@ -99,6 +99,7 @@
     <EntitySetMapping Name="Thuocs">
       <EntityTypeMapping TypeName="QLPMModel.Thuoc">
         <MappingFragment StoreEntitySet="Thuoc">
+          <ScalarProperty Name="TienThuoc" ColumnName="TienThuoc" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Ten" ColumnName="Ten" />
           <ScalarProperty Name="DonVi" ColumnName="DonVi" />

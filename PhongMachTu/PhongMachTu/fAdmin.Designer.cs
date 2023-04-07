@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPTK = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -64,6 +65,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgThuoc = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtNhaSX = new System.Windows.Forms.TextBox();
             this.txtCongDung = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
@@ -81,8 +84,7 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPTK.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTaiKhoan)).BeginInit();
@@ -96,6 +98,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgThuoc)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage4
@@ -378,6 +381,7 @@
             // 
             // tabPThuoc
             // 
+            this.tabPThuoc.AutoScroll = true;
             this.tabPThuoc.Controls.Add(this.btThemThuoc);
             this.tabPThuoc.Controls.Add(this.btXoaThuoc);
             this.tabPThuoc.Controls.Add(this.btXemThuoc);
@@ -449,7 +453,7 @@
             this.dgThuoc.Name = "dgThuoc";
             this.dgThuoc.RowHeadersWidth = 51;
             this.dgThuoc.RowTemplate.Height = 24;
-            this.dgThuoc.Size = new System.Drawing.Size(899, 264);
+            this.dgThuoc.Size = new System.Drawing.Size(899, 195);
             this.dgThuoc.TabIndex = 3;
             this.dgThuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgThuoc_CellClick);
             // 
@@ -473,6 +477,22 @@
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin thuốc";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(120, 23);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(260, 27);
+            this.txtId.TabIndex = 10;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(20, 26);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 19);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Mã thuốc";
             // 
             // txtNhaSX
             // 
@@ -606,27 +626,15 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // txtId
+            // accountBindingSource
             // 
-            this.txtId.Location = new System.Drawing.Point(120, 23);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(260, 27);
-            this.txtId.TabIndex = 10;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(20, 26);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(81, 19);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Mã thuốc";
+            this.accountBindingSource.DataSource = typeof(PhongMachTu.Account);
             // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 485);
+            this.ClientSize = new System.Drawing.Size(939, 487);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabCThuoc);
             this.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -651,6 +659,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgThuoc)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -712,5 +721,6 @@
         private System.Windows.Forms.Button btXoaThuoc;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.BindingSource accountBindingSource;
     }
 }

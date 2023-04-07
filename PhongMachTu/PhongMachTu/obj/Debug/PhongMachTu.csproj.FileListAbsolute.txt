@@ -48,3 +48,5 @@ C:\Users\Thanh\OneDrive\Desktop\BTL_LTCSDL\PhongMachTu\PhongMachTu\obj\Debug\Pho
 C:\Users\Thanh\OneDrive\Desktop\BTL_LTCSDL\PhongMachTu\PhongMachTu\obj\Debug\PhongMachTu.csproj.CopyComplete
 C:\Users\Thanh\OneDrive\Desktop\BTL_LTCSDL\PhongMachTu\PhongMachTu\obj\Debug\PhongMachTu.exe
 C:\Users\Thanh\OneDrive\Desktop\BTL_LTCSDL\PhongMachTu\PhongMachTu\obj\Debug\PhongMachTu.pdb
+C:\Users\Thanh\OneDrive\Desktop\BTL_LTCSDL\PhongMachTu\PhongMachTu\obj\Debug\PhongMachTu.ucThanhToan.resources
+C:\Users\Thanh\OneDrive\Desktop\BTL_LTCSDL\PhongMachTu\PhongMachTu\obj\Debug\PhongMachTu.fHoaDon.resources

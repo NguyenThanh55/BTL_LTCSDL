@@ -23,6 +23,11 @@ namespace PhongMachTu.BUS
             return false;
         }
 
+        public int LayID(String username)
+        {
+            return dAccount.LayId(username);
+        }
+
         public void HienThi(DataGridView dg)
         {
             dg.DataSource = dAccount.LayDSThongTin();

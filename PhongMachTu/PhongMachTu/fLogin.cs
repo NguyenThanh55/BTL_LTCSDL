@@ -38,6 +38,7 @@ namespace PhongMachTu
 
         private void btDangNhap_Click(object sender, EventArgs e)
         {
+            int maAccount;
             string username = txtDangNhap.Text;
             string password = txtMatKhau.Text;
             if (Login(username, password))
@@ -49,9 +50,20 @@ namespace PhongMachTu
                     f.ShowDialog();
                     this.Show();
                 }
-                else if (username == "doctor")
+                else if (username == "doctor2")
                 {
+                    maAccount = bAccount.LayID(username);
                     fDoctor f = new fDoctor();
+                    f.maAccount = maAccount;
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else if (username == "doctor4")
+                {
+                    maAccount = bAccount.LayID(username);
+                    fDoctor f = new fDoctor();
+                    f.maAccount = maAccount;
                     this.Hide();
                     f.ShowDialog();
                     this.Show();

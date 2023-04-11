@@ -18,7 +18,6 @@ namespace PhongMachTu
         public HoaDon()
         {
             this.ChiTietTTs = new HashSet<ChiTietTT>();
-            this.CTDVs = new HashSet<CTDV>();
         }
     
         public int id { get; set; }
@@ -32,8 +31,6 @@ namespace PhongMachTu
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietTT> ChiTietTTs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTDV> CTDVs { get; set; }
         public virtual PhieuKham PhieuKham { get; set; }
     }
 }

@@ -14,17 +14,8 @@ namespace PhongMachTu
     
     public partial class DichVu
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DichVu()
-        {
-            this.CTDVs = new HashSet<CTDV>();
-        }
-    
         public int id { get; set; }
         public string tenDV { get; set; }
         public int giaDV { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTDV> CTDVs { get; set; }
     }
 }

@@ -34,6 +34,8 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.dgTaiKhoan = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.cbbTenBS = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.cbbType = new System.Windows.Forms.ComboBox();
             this.txtConfirmPass = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -85,6 +87,9 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPage4.SuspendLayout();
             this.tabPTK.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTaiKhoan)).BeginInit();
@@ -99,10 +104,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgThuoc)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -142,9 +150,12 @@
             this.dgTaiKhoan.RowTemplate.Height = 24;
             this.dgTaiKhoan.Size = new System.Drawing.Size(503, 395);
             this.dgTaiKhoan.TabIndex = 1;
+            this.dgTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTaiKhoan_CellClick);
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.cbbTenBS);
+            this.groupBox6.Controls.Add(this.label12);
             this.groupBox6.Controls.Add(this.cbbType);
             this.groupBox6.Controls.Add(this.txtConfirmPass);
             this.groupBox6.Controls.Add(this.label11);
@@ -164,17 +175,34 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Thông tin tài khoản";
             // 
+            // cbbTenBS
+            // 
+            this.cbbTenBS.FormattingEnabled = true;
+            this.cbbTenBS.Location = new System.Drawing.Point(166, 60);
+            this.cbbTenBS.Name = "cbbTenBS";
+            this.cbbTenBS.Size = new System.Drawing.Size(211, 27);
+            this.cbbTenBS.TabIndex = 15;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 63);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(89, 19);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "Tên bác sĩ";
+            // 
             // cbbType
             // 
             this.cbbType.FormattingEnabled = true;
-            this.cbbType.Location = new System.Drawing.Point(163, 38);
+            this.cbbType.Location = new System.Drawing.Point(166, 23);
             this.cbbType.Name = "cbbType";
             this.cbbType.Size = new System.Drawing.Size(211, 27);
             this.cbbType.TabIndex = 0;
             // 
             // txtConfirmPass
             // 
-            this.txtConfirmPass.Location = new System.Drawing.Point(163, 183);
+            this.txtConfirmPass.Location = new System.Drawing.Point(166, 201);
             this.txtConfirmPass.Name = "txtConfirmPass";
             this.txtConfirmPass.Size = new System.Drawing.Size(211, 27);
             this.txtConfirmPass.TabIndex = 12;
@@ -182,7 +210,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 191);
+            this.label11.Location = new System.Drawing.Point(0, 204);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(154, 19);
             this.label11.TabIndex = 11;
@@ -190,7 +218,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(163, 133);
+            this.txtPassword.Location = new System.Drawing.Point(166, 153);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(211, 27);
             this.txtPassword.TabIndex = 2;
@@ -198,7 +226,7 @@
             // Password
             // 
             this.Password.AutoSize = true;
-            this.Password.Location = new System.Drawing.Point(3, 136);
+            this.Password.Location = new System.Drawing.Point(6, 156);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(87, 19);
             this.Password.TabIndex = 9;
@@ -212,6 +240,7 @@
             this.btXemTK.TabIndex = 6;
             this.btXemTK.Text = "Xem";
             this.btXemTK.UseVisualStyleBackColor = true;
+            this.btXemTK.Click += new System.EventHandler(this.btXemTK_Click);
             // 
             // btSuaTK
             // 
@@ -221,6 +250,7 @@
             this.btSuaTK.TabIndex = 5;
             this.btSuaTK.Text = "Sửa";
             this.btSuaTK.UseVisualStyleBackColor = true;
+            this.btSuaTK.Click += new System.EventHandler(this.btSuaTK_Click);
             // 
             // btXoaTK
             // 
@@ -230,10 +260,11 @@
             this.btXoaTK.TabIndex = 4;
             this.btXoaTK.Text = "Xóa";
             this.btXoaTK.UseVisualStyleBackColor = true;
+            this.btXoaTK.Click += new System.EventHandler(this.btXoaTK_Click);
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(163, 83);
+            this.txtUsername.Location = new System.Drawing.Point(166, 103);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(211, 27);
             this.txtUsername.TabIndex = 1;
@@ -246,11 +277,12 @@
             this.btThemTK.TabIndex = 3;
             this.btThemTK.Text = "Thêm";
             this.btThemTK.UseVisualStyleBackColor = true;
+            this.btThemTK.Click += new System.EventHandler(this.btThemTK_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 86);
+            this.label8.Location = new System.Drawing.Point(7, 106);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 19);
             this.label8.TabIndex = 2;
@@ -259,7 +291,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 41);
+            this.label9.Location = new System.Drawing.Point(6, 26);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 19);
             this.label9.TabIndex = 0;
@@ -337,6 +369,7 @@
             this.btXemBN.TabIndex = 2;
             this.btXemBN.Text = "Xem";
             this.btXemBN.UseVisualStyleBackColor = true;
+            this.btXemBN.Click += new System.EventHandler(this.btXemBN_Click);
             // 
             // btTimBN
             // 
@@ -346,6 +379,7 @@
             this.btTimBN.TabIndex = 3;
             this.btTimBN.Text = "Tìm kiếm";
             this.btTimBN.UseVisualStyleBackColor = true;
+            this.btTimBN.Click += new System.EventHandler(this.btTimBN_Click);
             // 
             // label2
             // 
@@ -630,6 +664,26 @@
             // 
             this.accountBindingSource.DataSource = typeof(PhongMachTu.Account);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.dataGridView1);
+            this.groupBox5.Location = new System.Drawing.Point(9, 6);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(510, 446);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Chi tiết tài khoản";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 26);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(498, 414);
+            this.dataGridView1.TabIndex = 1;
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -643,6 +697,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Người_Quản_Trị";
             this.Load += new System.EventHandler(this.fAdmin_Load);
+            this.tabPage4.ResumeLayout(false);
             this.tabPTK.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgTaiKhoan)).EndInit();
@@ -660,6 +715,8 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -722,5 +779,9 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.BindingSource accountBindingSource;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbbTenBS;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

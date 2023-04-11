@@ -11,12 +11,21 @@ namespace PhongMachTu.DAO
         QLPMEntities db;
         public DAO_BacSi() {
             db = new QLPMEntities();
+
         }
 
         public BacSi LayThongTinBacSi(int ma)
         {
             BacSi bs = db.BacSis.Where(s => s.id == ma).FirstOrDefault();
             return bs;
+        }
+
+        public dynamic LayTenBS()
+        {
+
+            var ds = db.BacSis.Select(s => new
+            { s.id, s.Ten }).ToList();
+            return ds;
         }
 
     }

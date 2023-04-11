@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="QLPMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QLPMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="id" />
@@ -211,7 +211,8 @@
             <End Role="PhieuKham" EntitySet="PhieuKham" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLPMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -268,8 +269,6 @@
           <Property Name="idHD" Type="Int32" Nullable="false" />
           <Property Name="idDV" Type="Int32" Nullable="false" />
           <Property Name="Gia" Type="Int32" />
-          <NavigationProperty Name="DichVu" Relationship="Self.FK__CTDV__idDV__403A8C7D" FromRole="CTDV" ToRole="DichVu" />
-          <NavigationProperty Name="HoaDon" Relationship="Self.FK_CTDV_HoaDon" FromRole="CTDV" ToRole="HoaDon" />
         </EntityType>
         <EntityType Name="DichVu">
           <Key>
@@ -278,7 +277,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tenDV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="giaDV" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CTDVs" Relationship="Self.FK__CTDV__idDV__403A8C7D" FromRole="DichVu" ToRole="CTDV" />
         </EntityType>
         <EntityType Name="HoaDon">
           <Key>
@@ -291,10 +289,9 @@
           <Property Name="TienThuoc" Type="Int32" />
           <Property Name="TongTien" Type="Int32" />
           <Property Name="idPK" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ChiTietTTs" Relationship="Self.FK_ChiTietTT_HoaDon" FromRole="HoaDon" ToRole="ChiTietTT" />
-          <NavigationProperty Name="CTDVs" Relationship="Self.FK_CTDV_HoaDon" FromRole="HoaDon" ToRole="CTDV" />
-          <NavigationProperty Name="PhieuKham" Relationship="Self.FK_HoaDon_PhieuKham" FromRole="HoaDon" ToRole="PhieuKham" />
           <Property Name="TrangThai" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ChiTietTTs" Relationship="Self.FK_ChiTietTT_HoaDon" FromRole="HoaDon" ToRole="ChiTietTT" />
+          <NavigationProperty Name="PhieuKham" Relationship="Self.FK_HoaDon_PhieuKham" FromRole="HoaDon" ToRole="PhieuKham" />
         </EntityType>
         <EntityType Name="PhieuKham">
           <Key>
@@ -383,30 +380,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTDV__idDV__403A8C7D">
-          <End Role="DichVu" Type="Self.DichVu" Multiplicity="1" />
-          <End Role="CTDV" Type="Self.CTDV" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DichVu">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="CTDV">
-              <PropertyRef Name="idDV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTDV_HoaDon">
-          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
-          <End Role="CTDV" Type="Self.CTDV" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HoaDon">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="CTDV">
-              <PropertyRef Name="idHD" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_HoaDon_PhieuKham">
           <End Role="PhieuKham" Type="Self.PhieuKham" Multiplicity="1" />
           <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
@@ -449,14 +422,6 @@
             <End Role="Thuoc" EntitySet="Thuocs" />
             <End Role="ChiTietTT" EntitySet="ChiTietTTs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CTDV__idDV__403A8C7D" Association="Self.FK__CTDV__idDV__403A8C7D">
-            <End Role="DichVu" EntitySet="DichVus" />
-            <End Role="CTDV" EntitySet="CTDVs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTDV_HoaDon" Association="Self.FK_CTDV_HoaDon">
-            <End Role="HoaDon" EntitySet="HoaDons" />
-            <End Role="CTDV" EntitySet="CTDVs" />
-          </AssociationSet>
           <AssociationSet Name="FK_HoaDon_PhieuKham" Association="Self.FK_HoaDon_PhieuKham">
             <End Role="PhieuKham" EntitySet="PhieuKhams" />
             <End Role="HoaDon" EntitySet="HoaDons" />
@@ -466,7 +431,7 @@
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_GetID" ReturnType="Collection(Int32)">
-          <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
       </Schema>
@@ -540,7 +505,6 @@
           <EntitySetMapping Name="HoaDons">
             <EntityTypeMapping TypeName="QLPMModel.HoaDon">
               <MappingFragment StoreEntitySet="HoaDon">
-                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="NgayKham" ColumnName="NgayKham" />
                 <ScalarProperty Name="TienKham" ColumnName="TienKham" />
@@ -548,6 +512,7 @@
                 <ScalarProperty Name="TienThuoc" ColumnName="TienThuoc" />
                 <ScalarProperty Name="TongTien" ColumnName="TongTien" />
                 <ScalarProperty Name="idPK" ColumnName="idPK" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

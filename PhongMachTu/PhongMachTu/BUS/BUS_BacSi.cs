@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using PhongMachTu.DAO;
 
 namespace PhongMachTu.BUS
@@ -18,6 +19,13 @@ namespace PhongMachTu.BUS
         public BacSi LayThongTinBacSi(int ma)
         {
             return dBacSi.LayThongTinBacSi(ma);
+        }
+
+        public void HienThiTenBS(ComboBox cb)
+        {
+            cb.DataSource = dBacSi.LayTenBS();
+            cb.DisplayMember = "Ten";
+            cb.ValueMember = "id";
         }
     }
 }

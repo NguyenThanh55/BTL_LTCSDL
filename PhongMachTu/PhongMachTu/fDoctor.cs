@@ -222,9 +222,14 @@ namespace PhongMachTu
             {
                 //if (tabPage3.Show() == DialogResult.OK)
                 //    MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel);
-                        
             } 
-                
+             
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            String tenBN = txtTimKiem.Text;
+            bBenhNhan.LayDSThongTinBN(dgHDDaThanhToan, tenBN);
         }
 
         private void btThemDV_Click(object sender, EventArgs e)
@@ -360,8 +365,8 @@ namespace PhongMachTu
                 if (bThuoc.xoaCTTT(ma))
                 {
                     MessageBox.Show("Xoa thanh cong");
-                    txtTienThuoc.Text = (Int32.Parse(txtTienThuoc.Text) - (Int32.Parse(dgThuoc.Rows[index].Cells[2].Value.ToString()) * Int32.Parse(dgThuoc.Rows[index].Cells[1].Value.ToString()))).ToString();
-                    txtTongTien.Text = (Int32.Parse(txtTongTien.Text) - (Int32.Parse(dgThuoc.Rows[index].Cells[2].Value.ToString()) * Int32.Parse(dgThuoc.Rows[index].Cells[1].Value.ToString()))).ToString();
+                    txtTienThuoc.Text = (Int32.Parse(txtTienThuoc.Text) - (Int32.Parse(dgThuoc.Rows[index].Cells[2].Value.ToString()) * Int32.Parse(numLieuLuong.Value.ToString()))).ToString();
+                    txtTongTien.Text = (Int32.Parse(txtTongTien.Text) - (Int32.Parse(dgThuoc.Rows[index].Cells[2].Value.ToString()) * Int32.Parse(numLieuLuong.Value.ToString()))).ToString();
                     dgThuoc.Rows.RemoveAt(this.dgThuoc.SelectedRows[0].Index);
                     //bDichVu.hienThi(dgDichVu);
                     //dgDichVu.DataSource = dtDichVu;

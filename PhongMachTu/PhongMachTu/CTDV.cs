@@ -18,8 +18,5 @@ namespace PhongMachTu
         public int idHD { get; set; }
         public int idDV { get; set; }
         public Nullable<int> Gia { get; set; }
-    
-        public virtual DichVu DichVu { get; set; }
-        public virtual HoaDon HoaDon { get; set; }
     }
 }

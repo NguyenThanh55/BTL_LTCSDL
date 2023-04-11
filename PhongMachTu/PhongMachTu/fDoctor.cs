@@ -220,8 +220,9 @@ namespace PhongMachTu
             }
             else if (tpLPK.SelectedIndex == 2)
             {
-                 if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
-                        fAdmin.Exit();
+                //if (tabPage3.Show() == DialogResult.OK)
+                //    MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel);
+                        
             } 
                 
         }
@@ -299,9 +300,23 @@ namespace PhongMachTu
             {
                 if (cbbThuoc.SelectedValue.ToString() == item[4].ToString())
                 {
+                    ChiTietTT cttt = bThuoc.LayThongTinCTTT(Int32.Parse(item[0].ToString()));
                     item[1] = Int32.Parse(item[1].ToString()) + numLieuLuong.Value;
-                    MessageBox.Show("Thuốc đã được thêm trước đó!!!", "Thông báo");
                     txtTongTien.Text = (Int32.Parse(txtTongTien.Text) + (Int32.Parse(thuoc.Gia.ToString()) * Int32.Parse(thuoc.LieuLuong.ToString()))).ToString();
+                    thuoc.id = cttt.id;
+                    thuoc.LieuLuong = Int32.Parse(item[1].ToString());
+                    thuoc.Gia = cttt.Gia;
+                    thuoc.CachDung = cttt.CachDung;
+                    thuoc.idThuoc = cttt.idThuoc;
+                    thuoc.idHD = cttt.idHD;
+                    if (bThuoc.suaCTTT(thuoc))
+                    {
+                        MessageBox.Show("Thuốc đã được thêm trước đó!!!", "Thông báo");
+                        txtTienThuoc.Text = (Int32.Parse(txtTienThuoc.Text) + (Int32.Parse(thuoc.Gia.ToString()) * Int32.Parse(thuoc.LieuLuong.ToString()))).ToString();
+                        txtTongTien.Text = (Int32.Parse(txtTongTien.Text) + (Int32.Parse(thuoc.Gia.ToString()) * Int32.Parse(thuoc.LieuLuong.ToString()))).ToString();
+                    }
+                    else
+                        MessageBox.Show("Sua k thanh cong");
                     ktThuoc = false;
                     break;
                 }

@@ -130,5 +130,16 @@ namespace PhongMachTu.DAO
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void SuaCTTThuoc(ChiTietTT thuoc)
+        {
+            ChiTietTT t = db.ChiTietTTs.Find(thuoc.id);
+            t.LieuLuong = thuoc.LieuLuong;
+            t.Gia = thuoc.Gia;
+            t.CachDung = thuoc.CachDung;
+            t.idThuoc = thuoc.idThuoc;
+            t.idHD = thuoc.idHD;
+            db.SaveChanges();
+        }
     }
 }

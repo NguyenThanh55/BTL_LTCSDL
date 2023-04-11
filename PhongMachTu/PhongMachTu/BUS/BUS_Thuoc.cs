@@ -131,5 +131,27 @@ namespace PhongMachTu.BUS
                 return false;
             }
         }
+
+        public bool suaCTTT(ChiTietTT thuoc)
+        {
+            //Kiem tra thuoc co ton tai hay k 
+            if (dThuoc.KiemTraThuoc(thuoc.id))
+            {
+                try
+                {
+                    dThuoc.SuaCTTThuoc(thuoc);
+                    return true;
+                }
+                catch (DbUpdateException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

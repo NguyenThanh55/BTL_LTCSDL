@@ -71,10 +71,9 @@ namespace PhongMachTu.BUS
             dg.DataSource = dBenhNhan.LayDSThongTin();
         }
 
-        public void HienThiTK(DataGridView dg, String name)
+        public void HienThiTK(DataGridView dg,int maBN, String ngayKham)
         {
-            dg.DataSource = dBenhNhan.TimKiem(name);
-
+            //dg.DataSource = dBenhNhan.TimKiem(maBN, ngayKham);
         }
 
         public void LayDSBN(ComboBox cb)
@@ -94,6 +93,18 @@ namespace PhongMachTu.BUS
             dg.DataSource = dBenhNhan.LayDSThongTinBN(ten);
         }
 
+        public void LayDSThongTinBN(DataGridView dg)
+        {
+            dg.DataSource = dBenhNhan.LayDSThongTinBN();
+        }
+
+        public void LayNgayKham(ComboBox cb)
+        {
+            cb.DataSource = dBenhNhan.LayNgayKham();
+            cb.DisplayMember = "ngayKham";
+            cb.ValueMember = "id";
+        }
+
         public bool themBN(BenhNhan benhNhan)
         {
             try
@@ -108,12 +119,11 @@ namespace PhongMachTu.BUS
             }
         }
 
-        public bool timBN(string name)
-        {
-            if (dBenhNhan.TimKiem(name).Count != 0)
-
-                return true;
-            return false;
-        }
+        //public bool timBN( int id, string name)
+        //{
+        //    //if (dBenhNhan.TimKiem(id, name).Count != 0)
+        //        return true;
+        //    return false;
+        //}
     }
 }

@@ -42,11 +42,36 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,8 +97,12 @@
     <Compile Include="BUS\BUS_BenhNhan.cs" />
     <Compile Include="BUS\BUS_DichVu.cs" />
     <Compile Include="BUS\BUS_HoaDon.cs" />
+    <Compile Include="BUS\BUS_LSBN.cs" />
     <Compile Include="BUS\BUS_PhieuKham.cs" />
+    <Compile Include="BUS\BUS_ThongKe.cs" />
     <Compile Include="BUS\BUS_Thuoc.cs" />
+    <Compile Include="DAO\DAO_LSBN.cs" />
+    <Compile Include="DAO\obj_ThongKe_NhomThuoc.cs" />
     <Compile Include="ChiTietTT.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -86,6 +115,7 @@
     <Compile Include="DAO\DAO_DichVu.cs" />
     <Compile Include="DAO\DAO_HoaDon.cs" />
     <Compile Include="DAO\DAO_PhieuKham.cs" />
+    <Compile Include="DAO\DAO_ThongKe.cs" />
     <Compile Include="DAO\DAO_Thuoc.cs" />
     <Compile Include="DichVu.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -114,11 +144,26 @@
     <Compile Include="fHoaDon.Designer.cs">
       <DependentUpon>fHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="fLichSuBenhNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fLichSuBenhNhan.Designer.cs">
+      <DependentUpon>fLichSuBenhNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FN_DoanhThu_Thuoc_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fReport.Designer.cs">
+      <DependentUpon>fReport.cs</DependentUpon>
     </Compile>
     <Compile Include="HoaDon.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -143,6 +188,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLPMDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLPMDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SP_SearchBN_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Thuoc.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -164,8 +218,14 @@
     <EmbeddedResource Include="fHoaDon.resx">
       <DependentUpon>fHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fLichSuBenhNhan.resx">
+      <DependentUpon>fLichSuBenhNhan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fReport.resx">
+      <DependentUpon>fReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -176,6 +236,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="rThongKe.rdlc" />
+    <EmbeddedResource Include="rThongKeThuoc.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucThanhToan.resx">
       <DependentUpon>ucThanhToan.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,7 +252,39 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Account.datasource" />
+    <None Include="Properties\DataSources\BacSi.datasource" />
+    <None Include="Properties\DataSources\BenhNhan.datasource" />
+    <None Include="Properties\DataSources\ChiTietTT.datasource" />
+    <None Include="Properties\DataSources\CTDV.datasource" />
+    <None Include="Properties\DataSources\DichVu.datasource" />
+    <None Include="Properties\DataSources\fAdmin.datasource" />
+    <None Include="Properties\DataSources\fDangKi.datasource" />
+    <None Include="Properties\DataSources\fDoctor.datasource" />
+    <None Include="Properties\DataSources\fHoaDon.datasource" />
+    <None Include="Properties\DataSources\fLogin.datasource" />
     <None Include="Properties\DataSources\HoaDon.datasource" />
+    <None Include="Properties\DataSources\PhieuKham.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.BUS.BUS_Account.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.BUS.BUS_BacSi.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.BUS.BUS_BenhNhan.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.BUS.BUS_DichVu.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.BUS.BUS_HoaDon.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.BUS.BUS_PhieuKham.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.BUS.BUS_Thuoc.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.DAO.DAO_Account.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.DAO.DAO_BacSi.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.DAO.DAO_BenhNhan.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.DAO.DAO_DichVu.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.DAO.DAO_HoaDon.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.DAO.DAO_PhieuKham.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.DAO.DAO_Thuoc.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\PhongMachTu.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\QLPMEntities.datasource" />
+    <None Include="Properties\DataSources\SP_SearchBN_Result.datasource" />
+    <None Include="Properties\DataSources\Thuoc.datasource" />
+    <None Include="Properties\DataSources\ucThanhToan.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -198,6 +294,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QLPMDataSet.xsc">
+      <DependentUpon>QLPMDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLPMDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLPMDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLPMDataSet.xss">
+      <DependentUpon>QLPMDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -215,6 +322,19 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -53,6 +53,8 @@
     <Property Name="idHD" Type="Int32" Nullable="false" />
     <Property Name="idDV" Type="Int32" Nullable="false" />
     <Property Name="Gia" Type="Int32" />
+    <NavigationProperty Name="DichVu" Relationship="QLPMModel.FK_CTDV_DichVu" FromRole="CTDV" ToRole="DichVu" />
+    <NavigationProperty Name="HoaDon" Relationship="QLPMModel.FK_CTDV_HoaDon" FromRole="CTDV" ToRole="HoaDon" />
   </EntityType>
   <EntityType Name="DichVu">
     <Key>
@@ -61,6 +63,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tenDV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="giaDV" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CTDVs" Relationship="QLPMModel.FK_CTDV_DichVu" FromRole="DichVu" ToRole="CTDV" />
   </EntityType>
   <EntityType Name="HoaDon">
     <Key>
@@ -76,6 +79,7 @@
     <Property Name="TrangThai" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="ChiTietTTs" Relationship="Self.FK_ChiTietTT_HoaDon" FromRole="HoaDon" ToRole="ChiTietTT" />
     <NavigationProperty Name="PhieuKham" Relationship="Self.FK_HoaDon_PhieuKham" FromRole="HoaDon" ToRole="PhieuKham" />
+    <NavigationProperty Name="CTDVs" Relationship="QLPMModel.FK_CTDV_HoaDon" FromRole="HoaDon" ToRole="CTDV" />
   </EntityType>
   <EntityType Name="PhieuKham">
     <Key>
@@ -217,5 +221,58 @@
     <FunctionImport Name="SP_GetID" ReturnType="Collection(Int32)">
       <Parameter Name="name" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="SP_SearchBN" ReturnType="Collection(QLPMModel.SP_SearchBN_Result)">
+      <Parameter Name="ten" Mode="In" Type="String" />
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <AssociationSet Name="FK_CTDV_DichVu" Association="QLPMModel.FK_CTDV_DichVu">
+      <End Role="DichVu" EntitySet="DichVus" />
+      <End Role="CTDV" EntitySet="CTDVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDV_HoaDon" Association="QLPMModel.FK_CTDV_HoaDon">
+      <End Role="HoaDon" EntitySet="HoaDons" />
+      <End Role="CTDV" EntitySet="CTDVs" />
+    </AssociationSet>
+    <FunctionImport Name="FN_DoanhThu_Thuoc" IsComposable="true" ReturnType="Collection(QLPMModel.FN_DoanhThu_Thuoc_Result)">
+      <Parameter Name="ngaytruoc" Mode="In" Type="DateTime" />
+      <Parameter Name="ngaysau" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_DEM" ReturnType="Collection(Int32)">
+      <Parameter Name="thang" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="SP_SearchBN_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Ten" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="NgayKham" Nullable="false" />
+  </ComplexType>
+  <Association Name="FK_CTDV_DichVu">
+    <End Type="QLPMModel.DichVu" Role="DichVu" Multiplicity="1" />
+    <End Type="QLPMModel.CTDV" Role="CTDV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DichVu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CTDV">
+        <PropertyRef Name="idDV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDV_HoaDon">
+    <End Type="QLPMModel.HoaDon" Role="HoaDon" Multiplicity="1" />
+    <End Type="QLPMModel.CTDV" Role="CTDV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CTDV">
+        <PropertyRef Name="idHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="FN_DoanhThu_Thuoc_Result">
+    <Property Type="Int32" Name="idThuoc" Nullable="false" />
+    <Property Type="String" Name="Ten" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="TongTien" Nullable="true" />
+  </ComplexType>
 </Schema>

@@ -59,7 +59,7 @@ namespace PhongMachTu
                     f.ShowDialog();
                     this.Show();
                 }
-                else if (username == "doctor4")
+                else if (username == "doctor3")
                 {
                     maAccount = bAccount.LayID(username);
                     fDoctor f = new fDoctor();

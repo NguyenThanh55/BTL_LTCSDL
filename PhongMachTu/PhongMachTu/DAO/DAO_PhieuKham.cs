@@ -13,7 +13,15 @@ namespace PhongMachTu.DAO
         {
             db = new QLPMEntities();
         }
-
+        public dynamic LayNgayKham()
+        {
+            var ds = db.PhieuKhams.Select(s => new
+            {
+                s.idBN,
+                s.NgayKham,
+            }).ToList();
+            return ds;
+        }
         public PhieuKham LayThongTinPhieuKham(int ma)
         {
             PhieuKham pk = db.PhieuKhams.Where(s => s.id == ma).FirstOrDefault();

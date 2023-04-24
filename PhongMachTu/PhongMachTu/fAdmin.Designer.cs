@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPTK = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -58,7 +66,7 @@
             this.btTimBN = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabCThuoc = new System.Windows.Forms.TabControl();
+            this.tabAdmin = new System.Windows.Forms.TabControl();
             this.tabPThuoc = new System.Windows.Forms.TabPage();
             this.btThemThuoc = new System.Windows.Forms.Button();
             this.btXoaThuoc = new System.Windows.Forms.Button();
@@ -85,10 +93,9 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
+            this.chartCot = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ChartLine = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage4.SuspendLayout();
             this.tabPTK.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -98,29 +105,31 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBenhNhan)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.tabCThuoc.SuspendLayout();
+            this.tabAdmin.SuspendLayout();
             this.tabPThuoc.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgThuoc)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartCot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.groupBox5);
+            this.tabPage4.BackColor = System.Drawing.Color.PeachPuff;
+            this.tabPage4.Controls.Add(this.ChartLine);
+            this.tabPage4.Controls.Add(this.chartCot);
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(933, 458);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Thông tin thống kê";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPTK
             // 
+            this.tabPTK.BackColor = System.Drawing.Color.PeachPuff;
             this.tabPTK.Controls.Add(this.groupBox7);
             this.tabPTK.Controls.Add(this.groupBox6);
             this.tabPTK.Location = new System.Drawing.Point(4, 28);
@@ -129,7 +138,6 @@
             this.tabPTK.Size = new System.Drawing.Size(933, 458);
             this.tabPTK.TabIndex = 2;
             this.tabPTK.Text = "Thông tin tài khoản";
-            this.tabPTK.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
@@ -299,6 +307,7 @@
             // 
             // tabPBN
             // 
+            this.tabPBN.BackColor = System.Drawing.Color.PeachPuff;
             this.tabPBN.Controls.Add(this.groupBox2);
             this.tabPBN.Controls.Add(this.groupBox1);
             this.tabPBN.Location = new System.Drawing.Point(4, 28);
@@ -308,7 +317,6 @@
             this.tabPBN.Size = new System.Drawing.Size(933, 458);
             this.tabPBN.TabIndex = 1;
             this.tabPBN.Text = "Thông tin bệnh nhân";
-            this.tabPBN.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -379,7 +387,6 @@
             this.btTimBN.TabIndex = 3;
             this.btTimBN.Text = "Tìm kiếm";
             this.btTimBN.UseVisualStyleBackColor = true;
-            this.btTimBN.Click += new System.EventHandler(this.btTimBN_Click);
             // 
             // label2
             // 
@@ -399,23 +406,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Bệnh nhân";
             // 
-            // tabCThuoc
+            // tabAdmin
             // 
-            this.tabCThuoc.Controls.Add(this.tabPThuoc);
-            this.tabCThuoc.Controls.Add(this.tabPBN);
-            this.tabCThuoc.Controls.Add(this.tabPTK);
-            this.tabCThuoc.Controls.Add(this.tabPage4);
-            this.tabCThuoc.Controls.Add(this.tabPEXIT);
-            this.tabCThuoc.Location = new System.Drawing.Point(-1, -1);
-            this.tabCThuoc.Margin = new System.Windows.Forms.Padding(4);
-            this.tabCThuoc.Name = "tabCThuoc";
-            this.tabCThuoc.SelectedIndex = 0;
-            this.tabCThuoc.Size = new System.Drawing.Size(941, 490);
-            this.tabCThuoc.TabIndex = 0;
+            this.tabAdmin.Controls.Add(this.tabPThuoc);
+            this.tabAdmin.Controls.Add(this.tabPBN);
+            this.tabAdmin.Controls.Add(this.tabPTK);
+            this.tabAdmin.Controls.Add(this.tabPage4);
+            this.tabAdmin.Controls.Add(this.tabPEXIT);
+            this.tabAdmin.Location = new System.Drawing.Point(-1, -1);
+            this.tabAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.tabAdmin.Name = "tabAdmin";
+            this.tabAdmin.SelectedIndex = 0;
+            this.tabAdmin.Size = new System.Drawing.Size(941, 490);
+            this.tabAdmin.TabIndex = 0;
             // 
             // tabPThuoc
             // 
             this.tabPThuoc.AutoScroll = true;
+            this.tabPThuoc.BackColor = System.Drawing.Color.PeachPuff;
             this.tabPThuoc.Controls.Add(this.btThemThuoc);
             this.tabPThuoc.Controls.Add(this.btXoaThuoc);
             this.tabPThuoc.Controls.Add(this.btXemThuoc);
@@ -429,7 +437,6 @@
             this.tabPThuoc.Size = new System.Drawing.Size(933, 458);
             this.tabPThuoc.TabIndex = 0;
             this.tabPThuoc.Text = "Thông tin thuốc";
-            this.tabPThuoc.UseVisualStyleBackColor = true;
             // 
             // btThemThuoc
             // 
@@ -459,6 +466,7 @@
             this.btXemThuoc.TabIndex = 3;
             this.btXemThuoc.Text = "Xem";
             this.btXemThuoc.UseVisualStyleBackColor = true;
+            this.btXemThuoc.Click += new System.EventHandler(this.btXemThuoc_Click);
             // 
             // btTimThuoc
             // 
@@ -514,6 +522,7 @@
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(120, 23);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(260, 27);
@@ -522,6 +531,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Enabled = false;
             this.label10.Location = new System.Drawing.Point(20, 26);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(81, 19);
@@ -610,13 +620,13 @@
             // 
             // tabPEXIT
             // 
+            this.tabPEXIT.BackColor = System.Drawing.Color.PeachPuff;
             this.tabPEXIT.Location = new System.Drawing.Point(4, 28);
             this.tabPEXIT.Name = "tabPEXIT";
             this.tabPEXIT.Padding = new System.Windows.Forms.Padding(3);
             this.tabPEXIT.Size = new System.Drawing.Size(933, 458);
             this.tabPEXIT.TabIndex = 4;
             this.tabPEXIT.Text = "Đăng xuất";
-            this.tabPEXIT.UseVisualStyleBackColor = true;
             // 
             // columnHeader1
             // 
@@ -651,46 +661,60 @@
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 150;
             // 
-            // button1
+            // chartCot
             // 
-            this.button1.Location = new System.Drawing.Point(846, 73);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(8, 8);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            chartArea2.Name = "ChartArea1";
+            this.chartCot.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartCot.Legends.Add(legend2);
+            this.chartCot.Location = new System.Drawing.Point(470, 16);
+            this.chartCot.Name = "chartCot";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.LegendText = "Tên thuốc";
+            series2.Name = "ChartCot";
+            this.chartCot.Series.Add(series2);
+            this.chartCot.Size = new System.Drawing.Size(454, 436);
+            this.chartCot.TabIndex = 5;
+            this.chartCot.Text = "chartCot";
+            title2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.ForeColor = System.Drawing.Color.Blue;
+            title2.Name = "Title1";
+            title2.Text = "Biểu đồ tổng số tiền thuốc theo tên thuốc";
+            this.chartCot.Titles.Add(title2);
+            // 
+            // ChartLine
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.ChartLine.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.ChartLine.Legends.Add(legend1);
+            this.ChartLine.Location = new System.Drawing.Point(6, 16);
+            this.ChartLine.Name = "ChartLine";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Số bệnh nhân";
+            this.ChartLine.Series.Add(series1);
+            this.ChartLine.Size = new System.Drawing.Size(449, 432);
+            this.ChartLine.TabIndex = 6;
+            this.ChartLine.Text = "chart1";
+            title1.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.ForeColor = System.Drawing.Color.Blue;
+            title1.Name = "Title1";
+            title1.Text = "Biểu đồ biểu diễn số lượng bệnh nhân theo tháng";
+            this.ChartLine.Titles.Add(title1);
             // 
             // accountBindingSource
             // 
             this.accountBindingSource.DataSource = typeof(PhongMachTu.Account);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.dataGridView1);
-            this.groupBox5.Location = new System.Drawing.Point(9, 6);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(510, 446);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Chi tiết tài khoản";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 26);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(498, 414);
-            this.dataGridView1.TabIndex = 1;
             // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 487);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.tabCThuoc);
+            this.Controls.Add(this.tabAdmin);
             this.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fAdmin";
@@ -708,15 +732,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgBenhNhan)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabCThuoc.ResumeLayout(false);
+            this.tabAdmin.ResumeLayout(false);
             this.tabPThuoc.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgThuoc)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartCot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -726,7 +750,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPTK;
         private System.Windows.Forms.TabPage tabPBN;
-        private System.Windows.Forms.TabControl tabCThuoc;
+        private System.Windows.Forms.TabControl tabAdmin;
         private System.Windows.Forms.TabPage tabPThuoc;
         private System.Windows.Forms.TabPage tabPEXIT;
         private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -734,7 +758,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgTaiKhoan;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgBenhNhan;
@@ -781,7 +804,7 @@
         private System.Windows.Forms.BindingSource accountBindingSource;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cbbTenBS;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartCot;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ChartLine;
     }
 }

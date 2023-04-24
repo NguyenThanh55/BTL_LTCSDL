@@ -58,5 +58,41 @@ namespace PhongMachTu
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_GetID", nameParameter);
         }
+    
+        public virtual ObjectResult<SP_SearchBN_Result> SP_SearchBN(string ten, Nullable<int> id)
+        {
+            var tenParameter = ten != null ?
+                new ObjectParameter("ten", ten) :
+                new ObjectParameter("ten", typeof(string));
+    
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SearchBN_Result>("SP_SearchBN", tenParameter, idParameter);
+        }
+    
+        [DbFunction("QLPMEntities", "FN_DoanhThu_Thuoc")]
+        public virtual IQueryable<FN_DoanhThu_Thuoc_Result> FN_DoanhThu_Thuoc(Nullable<System.DateTime> ngaytruoc, Nullable<System.DateTime> ngaysau)
+        {
+            var ngaytruocParameter = ngaytruoc.HasValue ?
+                new ObjectParameter("ngaytruoc", ngaytruoc) :
+                new ObjectParameter("ngaytruoc", typeof(System.DateTime));
+    
+            var ngaysauParameter = ngaysau.HasValue ?
+                new ObjectParameter("ngaysau", ngaysau) :
+                new ObjectParameter("ngaysau", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FN_DoanhThu_Thuoc_Result>("[QLPMEntities].[FN_DoanhThu_Thuoc](@ngaytruoc, @ngaysau)", ngaytruocParameter, ngaysauParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_DEM(Nullable<int> thang)
+        {
+            var thangParameter = thang.HasValue ?
+                new ObjectParameter("thang", thang) :
+                new ObjectParameter("thang", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_DEM", thangParameter);
+        }
     }
 }

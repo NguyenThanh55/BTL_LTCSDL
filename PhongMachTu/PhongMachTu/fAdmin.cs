@@ -192,6 +192,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhongMachTu.BUS;
+using System.Globalization;
 
 namespace PhongMachTu
 {
@@ -201,6 +202,8 @@ namespace PhongMachTu
         BUS_BenhNhan bBenhNhan;
         BUS_Thuoc bThuoc;
         BUS_BacSi bBacSi;
+        BUS_PhieuKham bPhieuKham;
+        BUS_ThongKe bThongKe;
         public fAdmin()
         {
             InitializeComponent();
@@ -208,7 +211,8 @@ namespace PhongMachTu
             bBenhNhan = new BUS_BenhNhan();
             bThuoc = new BUS_Thuoc();
             bBacSi = new BUS_BacSi();
-            //LoadAccountList();
+            bPhieuKham = new BUS_PhieuKham();
+            bThongKe = new BUS_ThongKe();
         }
 
         private void HienThiDSAccount()
@@ -254,12 +258,32 @@ namespace PhongMachTu
             //Page BenhNhan
             HienThiDSBenhNhan();
             bBenhNhan.LayDSBN(cbbBN);
+            bPhieuKham.LayNgayKham(cbbNgayKham);
 
             //Page Thuoc
             HienThiDSThuoc();
+
+            //Page thong ke
+            foreach (var i in bThongKe.bieudoThuoc())
+            {
+                chartCot.Series["ChartCot"].Points.AddXY(i.Ten, (i.Gia * i.LieuLuong));
+            }
+
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 1", bThongKe.bieudoBN(1));
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 2", bThongKe.bieudoBN(2));
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 3", bThongKe.bieudoBN(3));
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 4", bThongKe.bieudoBN(4));
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 5", bThongKe.bieudoBN(5));
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 6", bThongKe.bieudoBN(6));
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 7", bThongKe.bieudoBN(7));
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 8", bThongKe.bieudoBN(8));
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 9", bThongKe.bieudoBN(9));
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 10", bThongKe.bieudoBN(10));
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 11", bThongKe.bieudoBN(11));
+            ChartLine.Series["Số bệnh nhân"].Points.AddXY("Tháng 12", bThongKe.bieudoBN(12));
         }
 
-        //Account
+        //Page Account
         private void dgTaiKhoan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgTaiKhoan.Rows.Count)
@@ -357,7 +381,7 @@ namespace PhongMachTu
             HienThiDSAccount();
         }
 
-        //Thuoc
+        //Page Thuoc
         private void dgThuoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgThuoc.Rows.Count)
@@ -453,26 +477,51 @@ namespace PhongMachTu
             }
         }
 
-        //Benh Nhan
-        private void btTimBN_Click(object sender, EventArgs e)
+        private void btXemThuoc_Click(object sender, EventArgs e)
         {
-
-            string name = cbbBN.Text;
-            if (bBenhNhan.timBN(name))
-            {
-                MessageBox.Show("Tìm thành công");
-                bBenhNhan.HienThiTK(dgBenhNhan, name);
-            }
-            else
-            {
-                MessageBox.Show("Tìm thất bại");
-            }
+            HienThiDSThuoc();
         }
+
+        //Page Benh Nhan
+        //private void btTimBN_Click(object sender, EventArgs e)
+        //{
+
+        //    int maBN = int.Parse(cbbBN.SelectedValue.ToString());
+        //    String ngayKham = cbbBN.Text;
+        //    if (bBenhNhan.timBN(maBN, ngayKham))
+        //    {
+        //        MessageBox.Show("Tìm thành công");
+        //        bBenhNhan.HienThiTK(dgBenhNhan, maBN, ngayKham);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Tìm thất bại");
+        //    }
+        //}
 
         private void btXemBN_Click(object sender, EventArgs e)
         {
             HienThiDSBenhNhan();
         }
 
+        //Chuyen tab trang Admin
+        private void tabAdmin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabAdmin.SelectedIndex == 3)
+            {
+                //fReport f = new fReport();
+                //this.Hide();
+                //f.ShowDialog();
+                //this.Show();
+                fAdmin f = new fAdmin();
+                
+
+            }
+        }
+
+        private void btnTimTK_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

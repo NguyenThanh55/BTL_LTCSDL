@@ -128,6 +128,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_CTDV_DichVu">
+    <End Role="DichVu" Type="Self.DichVu" Multiplicity="1" />
+    <End Role="CTDV" Type="Self.CTDV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DichVu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CTDV">
+        <PropertyRef Name="idDV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDV_HoaDon">
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
+    <End Role="CTDV" Type="Self.CTDV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CTDV">
+        <PropertyRef Name="idHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_HoaDon_PhieuKham">
     <End Role="PhieuKham" Type="Self.PhieuKham" Multiplicity="1" />
     <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
@@ -164,12 +188,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="SP_DEM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="thang" Type="int" Mode="In" />
+  </Function>
   <Function Name="SP_GetAccountByUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userName" Type="nvarchar" Mode="In" />
     <Parameter Name="password" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="SP_GetID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_SearchBN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ten" Type="nvarchar" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="QLPMModelStoreContainer">
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
@@ -192,6 +223,14 @@
     <AssociationSet Name="FK_ChiTietTT_Thuoc" Association="Self.FK_ChiTietTT_Thuoc">
       <End Role="Thuoc" EntitySet="Thuoc" />
       <End Role="ChiTietTT" EntitySet="ChiTietTT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDV_DichVu" Association="Self.FK_CTDV_DichVu">
+      <End Role="DichVu" EntitySet="DichVu" />
+      <End Role="CTDV" EntitySet="CTDV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDV_HoaDon" Association="Self.FK_CTDV_HoaDon">
+      <End Role="HoaDon" EntitySet="HoaDon" />
+      <End Role="CTDV" EntitySet="CTDV" />
     </AssociationSet>
     <AssociationSet Name="FK_HoaDon_PhieuKham" Association="Self.FK_HoaDon_PhieuKham">
       <End Role="PhieuKham" EntitySet="PhieuKham" />

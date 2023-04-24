@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using PhongMachTu.DAO;
 
 namespace PhongMachTu.BUS
@@ -18,6 +19,12 @@ namespace PhongMachTu.BUS
         public PhieuKham LayThongTinPhieuKham(int ma)
         {
             return dPhieuKham.LayThongTinPhieuKham(ma);
+        }
+        public void LayNgayKham(ComboBox cb)
+        {
+            cb.DataSource = dPhieuKham.LayNgayKham();
+            cb.DisplayMember = "ngayKham";
+            cb.ValueMember = "idBN";
         }
 
         public bool taoPK(PhieuKham pk)

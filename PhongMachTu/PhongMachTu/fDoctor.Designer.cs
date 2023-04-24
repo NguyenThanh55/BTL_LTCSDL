@@ -101,6 +101,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tpLPK = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgLSBN = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgHDDaThanhToan)).BeginInit();
@@ -122,6 +124,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgDichVu)).BeginInit();
             this.panel5.SuspendLayout();
             this.tpLPK.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLSBN)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -296,7 +300,7 @@
             // btTimKiem
             // 
             this.btTimKiem.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTimKiem.Location = new System.Drawing.Point(1153, 50);
+            this.btTimKiem.Location = new System.Drawing.Point(1143, 50);
             this.btTimKiem.Name = "btTimKiem";
             this.btTimKiem.Size = new System.Drawing.Size(141, 30);
             this.btTimKiem.TabIndex = 11;
@@ -860,19 +864,45 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.PeachPuff;
+            this.tabPage3.Controls.Add(this.dgLSBN);
+            this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1313, 613);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Đăng xuất";
+            this.tabPage3.Text = "Lịch sử bệnh nhân";
+            // 
+            // dgLSBN
+            // 
+            this.dgLSBN.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgLSBN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgLSBN.Location = new System.Drawing.Point(27, 73);
+            this.dgLSBN.Name = "dgLSBN";
+            this.dgLSBN.RowHeadersWidth = 51;
+            this.dgLSBN.RowTemplate.Height = 24;
+            this.dgLSBN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgLSBN.Size = new System.Drawing.Size(1265, 534);
+            this.dgLSBN.TabIndex = 1;
+            this.dgLSBN.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLSBN_CellDoubleClick);
+            this.dgLSBN.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLSBN_CellDoubleClick);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(441, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(391, 48);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Lịch sử bệnh nhân";
             // 
             // fDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1316, 645);
+            this.ClientSize = new System.Drawing.Size(1312, 640);
             this.Controls.Add(this.tpLPK);
             this.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "fDoctor";
@@ -909,6 +939,9 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tpLPK.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLSBN)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -916,7 +949,6 @@
         #endregion
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btTimKiem;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel12;
@@ -986,5 +1018,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tongTienDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn btThanhToan;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.DataGridView dgLSBN;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btTimKiem;
     }
 }

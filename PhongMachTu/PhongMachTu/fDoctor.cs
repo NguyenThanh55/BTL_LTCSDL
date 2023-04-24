@@ -34,6 +34,7 @@ namespace PhongMachTu
 
         private void fDoctor_Load(object sender, EventArgs e)
         {
+            //Lap phieu kham
             lbMaBS.Text = maAccount.ToString();
             bBenhNhan.LayDSBN(cbbTenBN);
             bThuoc.LayDSThuoc(cbbThuoc);
@@ -61,10 +62,38 @@ namespace PhongMachTu
             dtThuoc.Columns.Add("idHD");
             dgThuoc.DataSource = dtThuoc;
 
+
+            //Thanh toán hóa đơn
             bHoaDon.HienThiHDChuaThanhToan(dgHDChuaThanhToan);
             bHoaDon.HienThiHDDaThanhToan(dgHDDaThanhToan);
+
+            //Lich su benh nhan
+            bBenhNhan.LayDSThongTinBN(dgLSBN);
         }
 
+        //Sự kiện chuyển tab của fDoctor
+        private void tpLPK_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tpLPK.SelectedIndex == 0)
+            {
+                gbDichVu.Enabled = false;
+                gbKeThuoc.Enabled = false;
+                gbTongTien.Enabled = false;
+            }
+            else if (tpLPK.SelectedIndex == 1)
+            {
+                bHoaDon.HienThiHDChuaThanhToan(dgHDChuaThanhToan);
+                bHoaDon.HienThiHDDaThanhToan(dgHDDaThanhToan);
+            }
+            else if (tpLPK.SelectedIndex == 2)
+            {
+                //if (tabPage3.Show() == DialogResult.OK)
+                //    MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel);
+            }
+
+        }
+
+        //Trang lập phiếu khám
         private void btTaoPK_Click(object sender, EventArgs e)
         {
             PhieuKham pk = new PhieuKham();
@@ -102,136 +131,7 @@ namespace PhongMachTu
                 MessageBox.Show("Tạo không thành công");
         }
 
-        private void btTaoHD_Click(object sender, EventArgs e)
-        {
-            HoaDon hd = new HoaDon();
-            hd.id = Int32.Parse(lbMaHD.Text);
-            hd.NgayKham = dpNgayKham.Value.Date;
-            hd.TienKham = Int32.Parse(lbTienKham.Text);
-            hd.TienDV = Int32.Parse(txtTienDV.Text);
-            hd.TienThuoc = Int32.Parse(txtTienThuoc.Text);
-            hd.TongTien = Int32.Parse(txtTongTien.Text);
-            hd.idPK = Int32.Parse(lbMaPK.Text);
-
-            if (bHoaDon.CapNhatHD(hd))
-            {
-                MessageBox.Show("Tạo hóa đơn thành công");
-                txtTrieuChung.Text = "";
-                txtDuDoan.Text = "";
-                lbMaHD.Text = "";
-                lbTienKham.Text = "";
-                txtTienDV.Text = "0";
-                txtTienThuoc.Text = "0";
-                txtTongTien.Text = "100000";
-                gbDichVu.Enabled = false;
-                gbKeThuoc.Enabled = false;
-                txtCachDung.Text = "";
-                numLieuLuong.Value = 0;
-                txtGia.Text = "";
-                gbTongTien.Enabled = false;
-
-                dtDichVu = new DataTable();
-                dtDichVu.Columns.Add("id");
-                dtDichVu.Columns.Add("idHD");
-                dtDichVu.Columns.Add("idDV");
-                dtDichVu.Columns.Add("Gia");
-                dgDichVu.DataSource = dtDichVu;
-
-                dtThuoc = new DataTable();
-                dtThuoc.Columns.Add("id");
-                dtThuoc.Columns.Add("LieuLuong");
-                dtThuoc.Columns.Add("Gia");
-                dtThuoc.Columns.Add("CachDung");
-                dtThuoc.Columns.Add("idThuoc");
-                dtThuoc.Columns.Add("idHD");
-                dgThuoc.DataSource = dtThuoc;
-
-                lbMaPK.Text = "";
-                lbMaHD.Text = "";
-            }
-            else
-                MessageBox.Show("Tạo hóa đơn không thành công");
-        }
-
-        private void dgHDChuaThanhToan_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 4)
-            {
-                int maHD = Int32.Parse(dgHDChuaThanhToan.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                HoaDon hd = bHoaDon.HienThiThongTinHD(maHD);
-                //MessageBox.Show((hd.id).ToString() + (hd.TienKham).ToString());
-                if (hd != null)
-                {
-                    HoaDon h = new HoaDon();
-                    h.id = hd.id;
-                    h.NgayKham = hd.NgayKham;
-                    h.TienKham = hd.TienKham;
-                    h.TienDV = hd.TienDV;
-                    h.TienThuoc = hd.TienThuoc;
-                    h.TongTien = hd.TongTien;
-                    h.idPK = hd.idPK;
-                    h.TrangThai = true;
-                    if (bHoaDon.CapNhatHD(h))
-                    {
-                        fHoaDon f = new fHoaDon();
-                        f.maHoaDon = h.id;
-                        f.ShowDialog();
-                        bHoaDon.HienThiHDChuaThanhToan(dgHDChuaThanhToan);
-                        bHoaDon.HienThiHDDaThanhToan(dgHDDaThanhToan);
-                    }
-                    else
-                        MessageBox.Show("Cap nhat k thanh cong");
-                }
-                else
-                    MessageBox.Show("Khong co hoa don");
-            }
-        }
-
-        private void txtTimKiem_Enter(object sender, EventArgs e)
-        {
-            if (txtTimKiem.Text == "Nhập tên bệnh nhân cần tìm ...")
-            {
-                txtTimKiem.Text = "";
-                txtTimKiem.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtTimKiem_Leave(object sender, EventArgs e)
-        {
-            if (txtTimKiem.Text == "")
-            {
-                txtTimKiem.Text = "Nhập tên bệnh nhân cần tìm ...";
-                txtTimKiem.ForeColor = Color.Silver;
-            }
-        }
-
-        private void tpLPK_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tpLPK.SelectedIndex == 0)
-            {
-                gbDichVu.Enabled = false;
-                gbKeThuoc.Enabled = false;
-                gbTongTien.Enabled = false;
-            }   
-            else if (tpLPK.SelectedIndex == 1)
-            {
-                bHoaDon.HienThiHDChuaThanhToan(dgHDChuaThanhToan);
-                bHoaDon.HienThiHDDaThanhToan(dgHDDaThanhToan);
-            }
-            else if (tpLPK.SelectedIndex == 2)
-            {
-                //if (tabPage3.Show() == DialogResult.OK)
-                //    MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel);
-            } 
-             
-        }
-
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
-        {
-            String tenBN = txtTimKiem.Text;
-            bBenhNhan.LayDSThongTinBN(dgHDDaThanhToan, tenBN);
-        }
-
+        //Dịch vụ
         private void btThemDV_Click(object sender, EventArgs e)
         {
             DataRow r;
@@ -296,6 +196,7 @@ namespace PhongMachTu
             }
         }
 
+        //Thuốc
         private void btThemThuoc_Click(object sender, EventArgs e)
         {
             DataRow r;
@@ -379,7 +280,6 @@ namespace PhongMachTu
             }
         }
 
-
         private void cbbThuoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             Thuoc t;
@@ -389,6 +289,123 @@ namespace PhongMachTu
                 maThuoc = Int32.Parse(cbbThuoc.SelectedValue.ToString());
                 t = bThuoc.LayThongTinThuoc(maThuoc);
                 txtGia.Text = t.TienThuoc.ToString();
+            }
+        }
+
+        private void dgLSBN_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            fLichSuBenhNhan f = new fLichSuBenhNhan();
+            f.maBenhNhan = int.Parse(dgLSBN.Rows[e.RowIndex].Cells[0].Value.ToString());
+            f.ShowDialog();
+        }
+
+        private void btTaoHD_Click(object sender, EventArgs e)
+        {
+            HoaDon hd = new HoaDon();
+            hd.id = Int32.Parse(lbMaHD.Text);
+            hd.NgayKham = dpNgayKham.Value.Date;
+            hd.TienKham = Int32.Parse(lbTienKham.Text);
+            hd.TienDV = Int32.Parse(txtTienDV.Text);
+            hd.TienThuoc = Int32.Parse(txtTienThuoc.Text);
+            hd.TongTien = Int32.Parse(txtTongTien.Text);
+            hd.idPK = Int32.Parse(lbMaPK.Text);
+
+            if (bHoaDon.CapNhatHD(hd))
+            {
+                MessageBox.Show("Tạo hóa đơn thành công");
+                txtTrieuChung.Text = "";
+                txtDuDoan.Text = "";
+                lbMaHD.Text = "";
+                lbTienKham.Text = "";
+                txtTienDV.Text = "0";
+                txtTienThuoc.Text = "0";
+                txtTongTien.Text = "100000";
+                gbDichVu.Enabled = false;
+                gbKeThuoc.Enabled = false;
+                txtCachDung.Text = "";
+                numLieuLuong.Value = 0;
+                txtGia.Text = "";
+                gbTongTien.Enabled = false;
+
+                dtDichVu = new DataTable();
+                dtDichVu.Columns.Add("id");
+                dtDichVu.Columns.Add("idHD");
+                dtDichVu.Columns.Add("idDV");
+                dtDichVu.Columns.Add("Gia");
+                dgDichVu.DataSource = dtDichVu;
+
+                dtThuoc = new DataTable();
+                dtThuoc.Columns.Add("id");
+                dtThuoc.Columns.Add("LieuLuong");
+                dtThuoc.Columns.Add("Gia");
+                dtThuoc.Columns.Add("CachDung");
+                dtThuoc.Columns.Add("idThuoc");
+                dtThuoc.Columns.Add("idHD");
+                dgThuoc.DataSource = dtThuoc;
+
+                lbMaPK.Text = "";
+                lbMaHD.Text = "";
+            }
+            else
+                MessageBox.Show("Tạo hóa đơn không thành công");
+        }
+
+        //Trang thanh toán hóa đơn
+        private void txtTimKiem_Enter(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == "Nhập tên bệnh nhân cần tìm ...")
+            {
+                txtTimKiem.Text = "";
+                txtTimKiem.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtTimKiem_Leave(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == "")
+            {
+                txtTimKiem.Text = "Nhập tên bệnh nhân cần tìm ...";
+                txtTimKiem.ForeColor = Color.Silver;
+            }
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            String tenBN = txtTimKiem.Text;
+            bBenhNhan.LayDSThongTinBN(dgHDDaThanhToan, tenBN);
+        }
+
+        private void dgHDChuaThanhToan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                int maHD = Int32.Parse(dgHDChuaThanhToan.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                HoaDon hd = bHoaDon.HienThiThongTinHD(maHD);
+                //MessageBox.Show((hd.id).ToString() + (hd.TienKham).ToString());
+                if (hd != null)
+                {
+                    HoaDon h = new HoaDon();
+                    h.id = hd.id;
+                    h.NgayKham = hd.NgayKham;
+                    h.TienKham = hd.TienKham;
+                    h.TienDV = hd.TienDV;
+                    h.TienThuoc = hd.TienThuoc;
+                    h.TongTien = hd.TongTien;
+                    h.idPK = hd.idPK;
+                    h.TrangThai = true;
+                    if (bHoaDon.CapNhatHD(h))
+                    {
+                        fHoaDon f = new fHoaDon();
+                        f.maHoaDon = h.id;
+                        f.ShowDialog();
+                        bHoaDon.HienThiHDChuaThanhToan(dgHDChuaThanhToan);
+                        bHoaDon.HienThiHDDaThanhToan(dgHDDaThanhToan);
+                    }
+                    else
+                        MessageBox.Show("Cap nhat k thanh cong");
+                }
+                else
+                    MessageBox.Show("Khong co hoa don");
             }
         }
     }

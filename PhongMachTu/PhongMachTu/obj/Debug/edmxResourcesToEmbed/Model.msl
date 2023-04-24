@@ -104,5 +104,15 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="SP_GetAccountByUsername" FunctionName="QLPMModel.Store.SP_GetAccountByUsername" />
     <FunctionImportMapping FunctionImportName="SP_GetID" FunctionName="QLPMModel.Store.SP_GetID" />
+    <FunctionImportMapping FunctionImportName="SP_SearchBN" FunctionName="QLPMModel.Store.SP_SearchBN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLPMModel.SP_SearchBN_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="NgayKham" ColumnName="NgayKham" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_DEM" FunctionName="QLPMModel.Store.SP_DEM" />
   </EntityContainerMapping>
 </Mapping>

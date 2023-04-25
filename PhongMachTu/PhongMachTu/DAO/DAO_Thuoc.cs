@@ -140,6 +140,7 @@ namespace PhongMachTu.DAO
             t.idThuoc = thuoc.idThuoc;
             t.idHD = thuoc.idHD;
             db.SaveChanges();
+        
         }
     }
 }

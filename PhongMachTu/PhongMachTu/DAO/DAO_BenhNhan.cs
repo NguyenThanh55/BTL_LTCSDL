@@ -130,37 +130,27 @@ namespace PhongMachTu.DAO
             }
         }
 
-        //public dynamic TimKiem(int maBN, String ngayKham)
+        public dynamic TimKiem(String ten)
+        {
+            var ds = db.BenhNhans.Where(t => t.Ten.Contains(ten)).
+                Select(s => new
+                {
+                    s.id,
+                    s.Ten,
+                    s.GioiTinh,
+                    s.NgaySinh,
+                    s.DiaChi
+                }).ToList();
+            return ds;
+        }
+
+        //public dynamic hienThiThongTinDVcuaBN(int id)
         //{
-            //var ds = db.BenhNhans.Where(t => t.Ten.Contains(ten)).
-            //    Select(s => new
-            //    {
-            //        s.id,
-            //        s.Ten,
-            //        s.GioiTinh,
-            //        s.NgaySinh,
-            //        s.DiaChi
-            //    }).ToList();
-            //return ds;
-        //    var ds = db.BenhNhans.Where(t => t.id == maBN).Join(db.PhieuKhams).Where().
-        //        Select(s => new
-        //        {
-        //            s.id,
-        //            s.Ten,
-        //            s.GioiTinh,
-        //            s.NgaySinh,
-        //            s.DiaChi,
-        //        }).ToList();
-        //    var ds = from bn in db.BenhNhans
-        //                   join pk in db.PhieuKhams on bn.id equals pk.id
-        //                   where bn.id == maBN && pk.NgayKham.Equals(ngayKham)
-        //                   select new
-        //                   {
-        //                       bn.id,
-        //                       bn.Ten,
-        //                       pk.NgayKham
-        //                   };
-        //    return ds;
+        //    var ds = db.CTDVs.Select(s => new
+        //    {
+        //        s.DichVu.tenDV,
+        //        s.HoaDon.idPK
+        //    }).Tolist();
         //}
     }
 }

@@ -27,6 +27,7 @@ namespace PhongMachTu.BUS
             cb.ValueMember = "idBN";
         }
 
+
         public bool taoPK(PhieuKham pk)
         {
             try

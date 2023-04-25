@@ -258,7 +258,7 @@ namespace PhongMachTu
             //Page BenhNhan
             HienThiDSBenhNhan();
             bBenhNhan.LayDSBN(cbbBN);
-            bPhieuKham.LayNgayKham(cbbNgayKham);
+            //bPhieuKham.LayNgayKham(cbbNgayKham);
 
             //Page Thuoc
             HienThiDSThuoc();
@@ -483,21 +483,20 @@ namespace PhongMachTu
         }
 
         //Page Benh Nhan
-        //private void btTimBN_Click(object sender, EventArgs e)
-        //{
+        private void btTimBN_Click(object sender, EventArgs e)
+        {
 
-        //    int maBN = int.Parse(cbbBN.SelectedValue.ToString());
-        //    String ngayKham = cbbBN.Text;
-        //    if (bBenhNhan.timBN(maBN, ngayKham))
-        //    {
-        //        MessageBox.Show("Tìm thành công");
-        //        bBenhNhan.HienThiTK(dgBenhNhan, maBN, ngayKham);
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Tìm thất bại");
-        //    }
-        //}
+            string name = cbbBN.Text;
+            if (bBenhNhan.timBN(name))
+            {
+                MessageBox.Show("Tìm thành công");
+                bBenhNhan.HienThiTK(dgBenhNhan, name);
+            }
+            else
+            {
+                MessageBox.Show("Tìm thất bại");
+            }
+        }
 
         private void btXemBN_Click(object sender, EventArgs e)
         {

@@ -41,25 +41,17 @@ namespace PhongMachTu
             int maAccount;
             string username = txtDangNhap.Text;
             string password = txtMatKhau.Text;
+            string loaiNV = cbbLoaiNhanVien.Text;
             if (Login(username, password))
             {
-                if (username == "admin")
+                if (loaiNV == "1")
                 {
                     fAdmin f = new fAdmin();
                     this.Hide();
                     f.ShowDialog();
                     this.Show();
                 }
-                else if (username == "doctor2")
-                {
-                    maAccount = bAccount.LayID(username);
-                    fDoctor f = new fDoctor();
-                    f.maAccount = maAccount;
-                    this.Hide();
-                    f.ShowDialog();
-                    this.Show();
-                }
-                else if (username == "doctor3")
+                else if (loaiNV == "2")
                 {
                     maAccount = bAccount.LayID(username);
                     fDoctor f = new fDoctor();
@@ -76,6 +68,12 @@ namespace PhongMachTu
         private void btThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void fLogin_Load(object sender, EventArgs e)
+        {
+            cbbLoaiNhanVien.Items.Add("1");
+            cbbLoaiNhanVien.Items.Add("2");
         }
     }
 }

@@ -38,6 +38,7 @@
             this.txtDuDoan = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtNgayKham = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gbDichVu = new System.Windows.Forms.GroupBox();
             this.dgDichVu = new System.Windows.Forms.DataGridView();
@@ -47,7 +48,6 @@
             this.txtMaBN = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtNgayKham = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -149,6 +149,14 @@
             this.panel1.Size = new System.Drawing.Size(594, 40);
             this.panel1.TabIndex = 8;
             // 
+            // txtNgayKham
+            // 
+            this.txtNgayKham.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNgayKham.Location = new System.Drawing.Point(201, 7);
+            this.txtNgayKham.Name = "txtNgayKham";
+            this.txtNgayKham.Size = new System.Drawing.Size(388, 30);
+            this.txtNgayKham.TabIndex = 4;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -240,22 +248,15 @@
             this.label6.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(562, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(372, 41);
+            this.label6.Size = new System.Drawing.Size(361, 40);
             this.label6.TabIndex = 16;
             this.label6.Text = "Thông tin bệnh nhân";
-            // 
-            // txtNgayKham
-            // 
-            this.txtNgayKham.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNgayKham.Location = new System.Drawing.Point(201, 7);
-            this.txtNgayKham.Name = "txtNgayKham";
-            this.txtNgayKham.Size = new System.Drawing.Size(388, 30);
-            this.txtNgayKham.TabIndex = 4;
             // 
             // fLichSuBenhNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1657, 481);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel5);
